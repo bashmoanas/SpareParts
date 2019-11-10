@@ -1,0 +1,447 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 50;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		A51770B8236099F700D2C1DF /* EditSparePartTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A51770B7236099F700D2C1DF /* EditSparePartTableViewController.swift */; };
+		A57C71CC236ED7B50041F7E1 /* CustomersOrderListTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A57C71CB236ED7B50041F7E1 /* CustomersOrderListTableViewController.swift */; };
+		A57C71CE236ED9790041F7E1 /* CustomerOrder.swift in Sources */ = {isa = PBXBuildFile; fileRef = A57C71CD236ED9790041F7E1 /* CustomerOrder.swift */; };
+		A57C71D0236EDB040041F7E1 /* Customer.swift in Sources */ = {isa = PBXBuildFile; fileRef = A57C71CF236EDB040041F7E1 /* Customer.swift */; };
+		A57C71D2236EE3170041F7E1 /* AddCustomerTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A57C71D1236EE3170041F7E1 /* AddCustomerTableViewController.swift */; };
+		A57C71D4236EE6120041F7E1 /* CustomersListTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A57C71D3236EE6120041F7E1 /* CustomersListTableViewController.swift */; };
+		A57C71D6236F063B0041F7E1 /* AddCustomerOrderTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A57C71D5236F063B0041F7E1 /* AddCustomerOrderTableViewController.swift */; };
+		A57C71D8236F16450041F7E1 /* ViewCustomerOrderTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A57C71D7236F16450041F7E1 /* ViewCustomerOrderTableViewController.swift */; };
+		A57C71DA236F219E0041F7E1 /* EditCustomerOrderTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A57C71D9236F219E0041F7E1 /* EditCustomerOrderTableViewController.swift */; };
+		A57C71DC23704A6E0041F7E1 /* ShowCOSparePartsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A57C71DB23704A6E0041F7E1 /* ShowCOSparePartsTableViewController.swift */; };
+		A57C71DE237052960041F7E1 /* EditCOSparePartsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A57C71DD237052960041F7E1 /* EditCOSparePartsTableViewController.swift */; };
+		A5B042C7235F5A5C001EB3C6 /* SparePartDetailsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5B042C6235F5A5B001EB3C6 /* SparePartDetailsTableViewController.swift */; };
+		A5DD23902356141B0036A180 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5DD238F2356141B0036A180 /* AppDelegate.swift */; };
+		A5DD23922356141B0036A180 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5DD23912356141B0036A180 /* SceneDelegate.swift */; };
+		A5DD23972356141B0036A180 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A5DD23952356141B0036A180 /* Main.storyboard */; };
+		A5DD2399235614200036A180 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A5DD2398235614200036A180 /* Assets.xcassets */; };
+		A5DD239C235614200036A180 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A5DD239A235614200036A180 /* LaunchScreen.storyboard */; };
+		A5DD23A4235614680036A180 /* SparePart.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5DD23A3235614680036A180 /* SparePart.swift */; };
+		A5DD23A6235617F50036A180 /* SparePartsListTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5DD23A5235617F50036A180 /* SparePartsListTableViewController.swift */; };
+		A5DD23A823570C880036A180 /* PriceCalculatorTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5DD23A723570C880036A180 /* PriceCalculatorTableViewController.swift */; };
+		A5DD23AA23570CB00036A180 /* Rule.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5DD23A923570CB00036A180 /* Rule.swift */; };
+		A5DD23AE23577CB90036A180 /* AddRuleTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5DD23AD23577CB90036A180 /* AddRuleTableViewController.swift */; };
+		A5DD23B023577DF50036A180 /* RulesListTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5DD23AF23577DF50036A180 /* RulesListTableViewController.swift */; };
+		A5DD23B22358A7240036A180 /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5DD23B12358A7240036A180 /* Extensions.swift */; };
+		A5DD23B4235DE21E0036A180 /* AddSparePartTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5DD23B3235DE21E0036A180 /* AddSparePartTableViewController.swift */; };
+		A5E2A81D2365C50000088A26 /* PurchaseOrder.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5E2A81C2365C50000088A26 /* PurchaseOrder.swift */; };
+		A5E2A81F2365C68100088A26 /* AddPurchaseOrderTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5E2A81E2365C68100088A26 /* AddPurchaseOrderTableViewController.swift */; };
+		A5E2A8212365CA4E00088A26 /* PurchaseOrdersListTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5E2A8202365CA4E00088A26 /* PurchaseOrdersListTableViewController.swift */; };
+		A5E2A8272365E8DC00088A26 /* EditPurchaseOrderTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5E2A8262365E8DC00088A26 /* EditPurchaseOrderTableViewController.swift */; };
+		A5E2A8292365F21B00088A26 /* ViewPurchaseOrderTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5E2A8282365F21B00088A26 /* ViewPurchaseOrderTableViewController.swift */; };
+		A5E2A82D23671ACB00088A26 /* EditPOSparePartsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5E2A82C23671ACB00088A26 /* EditPOSparePartsTableViewController.swift */; };
+		A5E2A82F23671AFC00088A26 /* ShowPOSparePartsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5E2A82E23671AFC00088A26 /* ShowPOSparePartsTableViewController.swift */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		A51770B7236099F700D2C1DF /* EditSparePartTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditSparePartTableViewController.swift; sourceTree = "<group>"; };
+		A57C71CB236ED7B50041F7E1 /* CustomersOrderListTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomersOrderListTableViewController.swift; sourceTree = SOURCE_ROOT; };
+		A57C71CD236ED9790041F7E1 /* CustomerOrder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomerOrder.swift; sourceTree = "<group>"; };
+		A57C71CF236EDB040041F7E1 /* Customer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Customer.swift; sourceTree = "<group>"; };
+		A57C71D1236EE3170041F7E1 /* AddCustomerTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddCustomerTableViewController.swift; sourceTree = "<group>"; };
+		A57C71D3236EE6120041F7E1 /* CustomersListTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomersListTableViewController.swift; sourceTree = "<group>"; };
+		A57C71D5236F063B0041F7E1 /* AddCustomerOrderTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddCustomerOrderTableViewController.swift; sourceTree = "<group>"; };
+		A57C71D7236F16450041F7E1 /* ViewCustomerOrderTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewCustomerOrderTableViewController.swift; sourceTree = "<group>"; };
+		A57C71D9236F219E0041F7E1 /* EditCustomerOrderTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditCustomerOrderTableViewController.swift; sourceTree = "<group>"; };
+		A57C71DB23704A6E0041F7E1 /* ShowCOSparePartsTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShowCOSparePartsTableViewController.swift; sourceTree = "<group>"; };
+		A57C71DD237052960041F7E1 /* EditCOSparePartsTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditCOSparePartsTableViewController.swift; sourceTree = "<group>"; };
+		A5B042C6235F5A5B001EB3C6 /* SparePartDetailsTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SparePartDetailsTableViewController.swift; sourceTree = "<group>"; };
+		A5DD238C2356141B0036A180 /* SpareParts.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SpareParts.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		A5DD238F2356141B0036A180 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		A5DD23912356141B0036A180 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
+		A5DD23962356141B0036A180 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		A5DD2398235614200036A180 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		A5DD239B235614200036A180 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		A5DD239D235614200036A180 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		A5DD23A3235614680036A180 /* SparePart.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SparePart.swift; sourceTree = "<group>"; };
+		A5DD23A5235617F50036A180 /* SparePartsListTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SparePartsListTableViewController.swift; sourceTree = "<group>"; };
+		A5DD23A723570C880036A180 /* PriceCalculatorTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PriceCalculatorTableViewController.swift; sourceTree = "<group>"; };
+		A5DD23A923570CB00036A180 /* Rule.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Rule.swift; sourceTree = "<group>"; };
+		A5DD23AD23577CB90036A180 /* AddRuleTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddRuleTableViewController.swift; sourceTree = "<group>"; };
+		A5DD23AF23577DF50036A180 /* RulesListTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RulesListTableViewController.swift; sourceTree = "<group>"; };
+		A5DD23B12358A7240036A180 /* Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
+		A5DD23B3235DE21E0036A180 /* AddSparePartTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddSparePartTableViewController.swift; sourceTree = "<group>"; };
+		A5E2A81C2365C50000088A26 /* PurchaseOrder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PurchaseOrder.swift; sourceTree = "<group>"; };
+		A5E2A81E2365C68100088A26 /* AddPurchaseOrderTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddPurchaseOrderTableViewController.swift; sourceTree = "<group>"; };
+		A5E2A8202365CA4E00088A26 /* PurchaseOrdersListTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PurchaseOrdersListTableViewController.swift; sourceTree = "<group>"; };
+		A5E2A8262365E8DC00088A26 /* EditPurchaseOrderTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditPurchaseOrderTableViewController.swift; sourceTree = "<group>"; };
+		A5E2A8282365F21B00088A26 /* ViewPurchaseOrderTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewPurchaseOrderTableViewController.swift; sourceTree = "<group>"; };
+		A5E2A82C23671ACB00088A26 /* EditPOSparePartsTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditPOSparePartsTableViewController.swift; sourceTree = SOURCE_ROOT; };
+		A5E2A82E23671AFC00088A26 /* ShowPOSparePartsTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShowPOSparePartsTableViewController.swift; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		A5DD23892356141B0036A180 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		A5DD23832356141A0036A180 = {
+			isa = PBXGroup;
+			children = (
+				A5DD238E2356141B0036A180 /* SpareParts */,
+				A5DD238D2356141B0036A180 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		A5DD238D2356141B0036A180 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				A5DD238C2356141B0036A180 /* SpareParts.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		A5DD238E2356141B0036A180 /* SpareParts */ = {
+			isa = PBXGroup;
+			children = (
+				A5DD238F2356141B0036A180 /* AppDelegate.swift */,
+				A5DD23912356141B0036A180 /* SceneDelegate.swift */,
+				A5DD23952356141B0036A180 /* Main.storyboard */,
+				A57C71D1236EE3170041F7E1 /* AddCustomerTableViewController.swift */,
+				A57C71D3236EE6120041F7E1 /* CustomersListTableViewController.swift */,
+				A57C71CF236EDB040041F7E1 /* Customer.swift */,
+				A57C71DD237052960041F7E1 /* EditCOSparePartsTableViewController.swift */,
+				A57C71DB23704A6E0041F7E1 /* ShowCOSparePartsTableViewController.swift */,
+				A57C71D9236F219E0041F7E1 /* EditCustomerOrderTableViewController.swift */,
+				A57C71D7236F16450041F7E1 /* ViewCustomerOrderTableViewController.swift */,
+				A57C71D5236F063B0041F7E1 /* AddCustomerOrderTableViewController.swift */,
+				A57C71CB236ED7B50041F7E1 /* CustomersOrderListTableViewController.swift */,
+				A57C71CD236ED9790041F7E1 /* CustomerOrder.swift */,
+				A5E2A82C23671ACB00088A26 /* EditPOSparePartsTableViewController.swift */,
+				A5E2A82E23671AFC00088A26 /* ShowPOSparePartsTableViewController.swift */,
+				A5E2A8282365F21B00088A26 /* ViewPurchaseOrderTableViewController.swift */,
+				A5E2A8262365E8DC00088A26 /* EditPurchaseOrderTableViewController.swift */,
+				A5E2A81E2365C68100088A26 /* AddPurchaseOrderTableViewController.swift */,
+				A5E2A8202365CA4E00088A26 /* PurchaseOrdersListTableViewController.swift */,
+				A5E2A81C2365C50000088A26 /* PurchaseOrder.swift */,
+				A5B042C6235F5A5B001EB3C6 /* SparePartDetailsTableViewController.swift */,
+				A5DD23B3235DE21E0036A180 /* AddSparePartTableViewController.swift */,
+				A51770B7236099F700D2C1DF /* EditSparePartTableViewController.swift */,
+				A5DD23A5235617F50036A180 /* SparePartsListTableViewController.swift */,
+				A5DD23A3235614680036A180 /* SparePart.swift */,
+				A5DD23A723570C880036A180 /* PriceCalculatorTableViewController.swift */,
+				A5DD23A923570CB00036A180 /* Rule.swift */,
+				A5DD23AF23577DF50036A180 /* RulesListTableViewController.swift */,
+				A5DD23AD23577CB90036A180 /* AddRuleTableViewController.swift */,
+				A5DD23B12358A7240036A180 /* Extensions.swift */,
+				A5DD2398235614200036A180 /* Assets.xcassets */,
+				A5DD239A235614200036A180 /* LaunchScreen.storyboard */,
+				A5DD239D235614200036A180 /* Info.plist */,
+			);
+			path = SpareParts;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		A5DD238B2356141B0036A180 /* SpareParts */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = A5DD23A0235614200036A180 /* Build configuration list for PBXNativeTarget "SpareParts" */;
+			buildPhases = (
+				A5DD23882356141B0036A180 /* Sources */,
+				A5DD23892356141B0036A180 /* Frameworks */,
+				A5DD238A2356141B0036A180 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = SpareParts;
+			productName = SpareParts;
+			productReference = A5DD238C2356141B0036A180 /* SpareParts.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		A5DD23842356141A0036A180 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastSwiftUpdateCheck = 1100;
+				LastUpgradeCheck = 1100;
+				ORGANIZATIONNAME = "Anas Bashandy";
+				TargetAttributes = {
+					A5DD238B2356141B0036A180 = {
+						CreatedOnToolsVersion = 11.0;
+					};
+				};
+			};
+			buildConfigurationList = A5DD23872356141A0036A180 /* Build configuration list for PBXProject "SpareParts" */;
+			compatibilityVersion = "Xcode 9.3";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = A5DD23832356141A0036A180;
+			productRefGroup = A5DD238D2356141B0036A180 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				A5DD238B2356141B0036A180 /* SpareParts */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		A5DD238A2356141B0036A180 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				A5DD239C235614200036A180 /* LaunchScreen.storyboard in Resources */,
+				A5DD2399235614200036A180 /* Assets.xcassets in Resources */,
+				A5DD23972356141B0036A180 /* Main.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		A5DD23882356141B0036A180 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				A5DD23AE23577CB90036A180 /* AddRuleTableViewController.swift in Sources */,
+				A57C71D4236EE6120041F7E1 /* CustomersListTableViewController.swift in Sources */,
+				A57C71DA236F219E0041F7E1 /* EditCustomerOrderTableViewController.swift in Sources */,
+				A57C71DC23704A6E0041F7E1 /* ShowCOSparePartsTableViewController.swift in Sources */,
+				A5DD23B22358A7240036A180 /* Extensions.swift in Sources */,
+				A57C71CC236ED7B50041F7E1 /* CustomersOrderListTableViewController.swift in Sources */,
+				A5DD23A823570C880036A180 /* PriceCalculatorTableViewController.swift in Sources */,
+				A5E2A82F23671AFC00088A26 /* ShowPOSparePartsTableViewController.swift in Sources */,
+				A57C71D2236EE3170041F7E1 /* AddCustomerTableViewController.swift in Sources */,
+				A5DD23A4235614680036A180 /* SparePart.swift in Sources */,
+				A51770B8236099F700D2C1DF /* EditSparePartTableViewController.swift in Sources */,
+				A57C71D0236EDB040041F7E1 /* Customer.swift in Sources */,
+				A57C71CE236ED9790041F7E1 /* CustomerOrder.swift in Sources */,
+				A5DD23902356141B0036A180 /* AppDelegate.swift in Sources */,
+				A5E2A81D2365C50000088A26 /* PurchaseOrder.swift in Sources */,
+				A5DD23AA23570CB00036A180 /* Rule.swift in Sources */,
+				A5B042C7235F5A5C001EB3C6 /* SparePartDetailsTableViewController.swift in Sources */,
+				A5E2A8272365E8DC00088A26 /* EditPurchaseOrderTableViewController.swift in Sources */,
+				A5DD23A6235617F50036A180 /* SparePartsListTableViewController.swift in Sources */,
+				A5E2A8292365F21B00088A26 /* ViewPurchaseOrderTableViewController.swift in Sources */,
+				A5DD23B4235DE21E0036A180 /* AddSparePartTableViewController.swift in Sources */,
+				A5DD23922356141B0036A180 /* SceneDelegate.swift in Sources */,
+				A5E2A8212365CA4E00088A26 /* PurchaseOrdersListTableViewController.swift in Sources */,
+				A57C71D8236F16450041F7E1 /* ViewCustomerOrderTableViewController.swift in Sources */,
+				A5E2A82D23671ACB00088A26 /* EditPOSparePartsTableViewController.swift in Sources */,
+				A57C71DE237052960041F7E1 /* EditCOSparePartsTableViewController.swift in Sources */,
+				A5DD23B023577DF50036A180 /* RulesListTableViewController.swift in Sources */,
+				A5E2A81F2365C68100088A26 /* AddPurchaseOrderTableViewController.swift in Sources */,
+				A57C71D6236F063B0041F7E1 /* AddCustomerOrderTableViewController.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXVariantGroup section */
+		A5DD23952356141B0036A180 /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				A5DD23962356141B0036A180 /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		A5DD239A235614200036A180 /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				A5DD239B235614200036A180 /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		A5DD239E235614200036A180 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		A5DD239F235614200036A180 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		A5DD23A1235614200036A180 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 8D5VS833C2;
+				INFOPLIST_FILE = SpareParts/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.anasBashandy.SpareParts;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		A5DD23A2235614200036A180 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 8D5VS833C2;
+				INFOPLIST_FILE = SpareParts/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.anasBashandy.SpareParts;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		A5DD23872356141A0036A180 /* Build configuration list for PBXProject "SpareParts" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				A5DD239E235614200036A180 /* Debug */,
+				A5DD239F235614200036A180 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		A5DD23A0235614200036A180 /* Build configuration list for PBXNativeTarget "SpareParts" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				A5DD23A1235614200036A180 /* Debug */,
+				A5DD23A2235614200036A180 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = A5DD23842356141A0036A180 /* Project object */;
+}

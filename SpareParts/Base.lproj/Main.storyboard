@@ -125,7 +125,7 @@
                                         </tableViewCellContentView>
                                     </tableViewCell>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" textLabel="ySa-BQ-cNX" detailTextLabel="Lw8-Cw-2SU" style="IBUITableViewCellStyleValue1" id="eZi-St-2ZT">
-                                        <rect key="frame" x="16" y="105.5" width="288" height="43.5"/>
+                                        <rect key="frame" x="0.0" y="105.5" width="288" height="43.5"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="eZi-St-2ZT" id="ldC-MX-5uR">
                                             <rect key="frame" x="0.0" y="0.0" width="288" height="43.5"/>
@@ -366,6 +366,34 @@
                                     </tableViewCell>
                                 </cells>
                             </tableViewSection>
+                            <tableViewSection id="BzH-gP-S5n">
+                                <cells>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" textLabel="UFW-7t-D0b" detailTextLabel="eFg-vr-5XQ" style="IBUITableViewCellStyleValue1" id="n3q-vh-beo">
+                                        <rect key="frame" x="16" y="648.5" width="288" height="43.5"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="n3q-vh-beo" id="0Kr-ug-vwI">
+                                            <rect key="frame" x="0.0" y="0.0" width="288" height="43.5"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" insetsLayoutMarginsFromSafeArea="NO" text="Restock At" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontForContentSizeCategory="YES" adjustsFontSizeToFit="NO" id="UFW-7t-D0b">
+                                                    <rect key="frame" x="15" y="12" width="82.5" height="20.5"/>
+                                                    <autoresizingMask key="autoresizingMask"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" insetsLayoutMarginsFromSafeArea="NO" text="Detail" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="eFg-vr-5XQ">
+                                                    <rect key="frame" x="229" y="12" width="44" height="20.5"/>
+                                                    <autoresizingMask key="autoresizingMask"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                            </subviews>
+                                        </tableViewCellContentView>
+                                    </tableViewCell>
+                                </cells>
+                            </tableViewSection>
                         </sections>
                         <connections>
                             <outlet property="dataSource" destination="o7j-Gn-aao" id="B3r-I7-WWQ"/>
@@ -385,6 +413,7 @@
                         <outlet property="currentStockCostLabel" destination="tPX-B4-0z5" id="X5w-wG-eoV"/>
                         <outlet property="detailsLabel" destination="KoL-Yg-K1v" id="voV-xx-GWf"/>
                         <outlet property="priceInJPYLabel" destination="Bbp-Mm-F5S" id="nMk-uH-Iqk"/>
+                        <outlet property="restockLevel" destination="eFg-vr-5XQ" id="WtX-JE-AqR"/>
                         <outlet property="salePriceLabel" destination="Lw8-Cw-2SU" id="bHs-cw-Ugh"/>
                         <outlet property="stockLabel" destination="y3L-NF-xFH" id="2ct-GH-10x"/>
                         <outlet property="totalItemsPurchasedLabel" destination="52C-29-0hP" id="2iH-Zf-Y1c"/>
@@ -2472,6 +2501,41 @@
                                     </tableViewCell>
                                 </cells>
                             </tableViewSection>
+                            <tableViewSection id="WNq-EJ-mk2">
+                                <cells>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" id="lRQ-T8-YN8">
+                                        <rect key="frame" x="0.0" y="307.5" width="320" height="43.5"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="lRQ-T8-YN8" id="Y3H-2P-cXi">
+                                            <rect key="frame" x="0.0" y="0.0" width="320" height="43.5"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="252" verticalHuggingPriority="251" horizontalCompressionResistancePriority="751" text="Restock At" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontForContentSizeCategory="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0DX-30-EUj">
+                                                    <rect key="frame" x="16" y="11.5" width="82.5" height="21"/>
+                                                    <fontDescription key="fontDescription" style="UICTFontTextStyleBody"/>
+                                                    <color key="textColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" textAlignment="right" adjustsFontForContentSizeCategory="YES" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="ikZ-f9-NQN">
+                                                    <rect key="frame" x="106.5" y="11.5" width="197.5" height="21"/>
+                                                    <fontDescription key="fontDescription" style="UICTFontTextStyleBody"/>
+                                                    <textInputTraits key="textInputTraits" autocapitalizationType="words" keyboardType="decimalPad"/>
+                                                    <connections>
+                                                        <action selector="textEditingChanged:" destination="xmX-q8-TKE" eventType="editingChanged" id="Ya3-zd-0cU"/>
+                                                    </connections>
+                                                </textField>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstItem="ikZ-f9-NQN" firstAttribute="centerY" secondItem="Y3H-2P-cXi" secondAttribute="centerY" id="BHd-57-DBr"/>
+                                                <constraint firstItem="0DX-30-EUj" firstAttribute="leading" secondItem="Y3H-2P-cXi" secondAttribute="leadingMargin" id="GJx-d4-qCE"/>
+                                                <constraint firstItem="ikZ-f9-NQN" firstAttribute="leading" secondItem="0DX-30-EUj" secondAttribute="trailing" constant="8" id="UhW-D8-M2X"/>
+                                                <constraint firstAttribute="trailingMargin" secondItem="ikZ-f9-NQN" secondAttribute="trailing" id="XHd-5r-1sR"/>
+                                                <constraint firstItem="0DX-30-EUj" firstAttribute="centerY" secondItem="Y3H-2P-cXi" secondAttribute="centerY" id="aCb-L1-x0h"/>
+                                            </constraints>
+                                        </tableViewCellContentView>
+                                    </tableViewCell>
+                                </cells>
+                            </tableViewSection>
                         </sections>
                         <connections>
                             <outlet property="dataSource" destination="xmX-q8-TKE" id="bXf-3x-2Tl"/>
@@ -2496,6 +2560,7 @@
                         <outlet property="newPriceTextField" destination="Ye5-9b-se4" id="m5S-io-Eml"/>
                         <outlet property="partNumberTextField" destination="0x9-oS-B5Q" id="eje-1w-7zF"/>
                         <outlet property="priceInJPYTextField" destination="YBI-Kc-Lkk" id="BwY-hd-7VZ"/>
+                        <outlet property="restockAtTextField" destination="ikZ-f9-NQN" id="cgn-Ja-aoC"/>
                         <outlet property="saveButton" destination="EST-28-PMJ" id="9YW-3x-Rjn"/>
                     </connections>
                 </tableViewController>

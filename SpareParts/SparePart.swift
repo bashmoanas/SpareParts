@@ -16,6 +16,7 @@ class SparePart: Codable, Comparable {
     var priceInJPY: Double
     var alternativeSalePrice: Double?
     var otherSalePrice: Double? { didSet { SparePart.save(spareParts: SparePart.all!) } }
+    var restockLevel: Int?
     
     var currentStock: Int {
         return (PurchaseOrder.allPurchasedSparePartsWithQuantities[self] ?? 0) - (CustomerOrder.allSoldSparePartsWithQuantities[self] ?? 0)
@@ -51,12 +52,13 @@ class SparePart: Codable, Comparable {
         return (cost + (cost * SparePart.noRuleProfit / 100)).rounded(to: 100)
     }
     
-    init(details: String, partNumber: String, priceInJPY: Double, alternativeSalePrice: Double?, otherSalePrice: Double?) {
+    init(details: String, partNumber: String, priceInJPY: Double, alternativeSalePrice: Double?, otherSalePrice: Double?, restockLevel: Int?) {
         self.details = details
         self.partNumber = partNumber
         self.priceInJPY = priceInJPY
         self.alternativeSalePrice = alternativeSalePrice
         self.otherSalePrice = otherSalePrice
+        self.restockLevel = restockLevel
     }
     
     func calculateAverageCost(for sparePart: SparePart) -> Double {

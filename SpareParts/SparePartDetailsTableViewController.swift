@@ -23,6 +23,8 @@ class SparePartDetailsTableViewController: UITableViewController, UINavigationCo
     @IBOutlet weak var totalItemsSoldLabel: UILabel!
     @IBOutlet weak var totalSales: UILabel!
     
+    @IBOutlet weak var restockLevel: UILabel!
+    
     var sparePart: SparePart?
     
     override func viewDidLoad() {
@@ -53,6 +55,7 @@ class SparePartDetailsTableViewController: UITableViewController, UINavigationCo
             totalItemsSoldLabel.text = "\(sparePart.totalItemsSold)"
             averageCostPerItemLabel.text = "\(sparePart.calculateAverageCost(for: sparePart).convertToEgyptianCurrency)"
             currentStockCostLabel.text = "\(sparePart.currentStockCost.convertToEgyptianCurrency)"
+            restockLevel.text = (sparePart.restockLevel != nil) ? "\(sparePart.restockLevel!)" : "Not Set"
         }
         
         

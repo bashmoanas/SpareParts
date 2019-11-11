@@ -66,7 +66,7 @@ class AddSparePartTableViewController: UITableViewController, UITextFieldDelegat
             let details = detailsTextField.text,
             let partNumber = partNumberTextField.text,
             let priceInJPY = Double(priceInJPYTextField.text ?? "") {
-            sparePart = SparePart(details: details, partNumber: partNumber, priceInJPY: priceInJPY, alternativeSalePrice: nil, otherSalePrice: nil)
+            sparePart = SparePart(details: details, partNumber: partNumber, priceInJPY: priceInJPY, alternativeSalePrice: nil, otherSalePrice: nil, restockLevel: nil)
         }
     }
 }

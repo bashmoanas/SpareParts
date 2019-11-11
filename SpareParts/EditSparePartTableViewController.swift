@@ -15,6 +15,7 @@ class EditSparePartTableViewController: UITableViewController {
     @IBOutlet weak var priceInJPYTextField: UITextField!
     @IBOutlet weak var automaticSalePriceLabel: UILabel!
     @IBOutlet weak var newPriceTextField: UITextField!
+    @IBOutlet weak var restockAtTextField: UITextField!
     @IBOutlet weak var saveButton: UIBarButtonItem!
     
     var sparePart: SparePart?
@@ -28,6 +29,7 @@ class EditSparePartTableViewController: UITableViewController {
             priceInJPYTextField.text = "\(sparePart.priceInJPY.cleaned)"
             automaticSalePriceLabel.text = "\(sparePart.salePrice.convertToEgyptianCurrency)"
             newPriceTextField.text = "\(sparePart.alternativeSalePrice?.cleaned ?? "")"
+            restockAtTextField.text = (sparePart.restockLevel != nil) ? "\(sparePart.restockLevel!)" : ""
         }
         
         updateSaveButtonStatus()
@@ -58,8 +60,9 @@ class EditSparePartTableViewController: UITableViewController {
         let partNumber = partNumberTextField.text ?? ""
         let priceInJPY = Double(priceInJPYTextField.text ?? "") ?? 0
         let alternativePrice = Double(newPriceTextField.text ?? "")
+        let restockLevel = Int(restockAtTextField.text ?? "")
         
-        sparePart = SparePart(details: descriptionText, partNumber: partNumber, priceInJPY: priceInJPY, alternativeSalePrice: alternativePrice, otherSalePrice: nil)
+        sparePart = SparePart(details: descriptionText, partNumber: partNumber, priceInJPY: priceInJPY, alternativeSalePrice: alternativePrice, otherSalePrice: nil, restockLevel: restockLevel)
     }
     
 }

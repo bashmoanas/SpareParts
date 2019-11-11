@@ -47,7 +47,9 @@ class SparePartsListTableViewController: UITableViewController {
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "sparePartCell", for: indexPath)
         let sparePart = spareParts[indexPath.row]
+        
         let priceToDisplay = sparePart.alternativeSalePrice != nil ? "\(sparePart.alternativeSalePrice!.convertToEgyptianCurrency)" : "\(sparePart.salePrice.convertToEgyptianCurrency)"
+        
         cell.textLabel?.text =
         """
         \(sparePart.partNumber)

@@ -17,6 +17,7 @@ class SparePart: Codable, Comparable {
     var alternativeSalePrice: Double?
     var otherSalePrice: Double? { didSet { SparePart.save(spareParts: SparePart.all!) } }
     var restockLevel: Int?
+    var isDiscontinued = false
     
     var currentStock: Int {
         return (PurchaseOrder.allPurchasedSparePartsWithQuantities[self] ?? 0) - (CustomerOrder.allSoldSparePartsWithQuantities[self] ?? 0)
@@ -67,28 +68,30 @@ class SparePart: Codable, Comparable {
         let currentPurchaseIndex: Int
         let previousPurchaseOrder: PurchaseOrder?
         
-        let purchaseOrders = PurchaseOrder.all!.filter({ (purchaseOrder) -> Bool in
+        if let purchaseOrders = PurchaseOrder.all?.filter({ (purchaseOrder) -> Bool in
             return purchaseOrder.spareParts.keys.contains(sparePart)
-        })
-        
-        if purchaseOrders.count == 0 {
-            return 0
-        } else if purchaseOrders.count == 1 {
-            return purchaseOrders.last?.averageCostPerSparePart[sparePart] ?? 0
-        } else {
-            currentPurchaseOrder = purchaseOrders.last!
-            currentPurchaseIndex = purchaseOrders.endIndex - 1
-            previousPurchaseOrder = purchaseOrders[currentPurchaseIndex - 1]
-            
-            let previousQuantity = previousPurchaseOrder?.spareParts[sparePart]!
-            let previousCost = previousPurchaseOrder?.averageCostPerSparePart[sparePart]!
-            let currentQuantity = currentPurchaseOrder.spareParts[sparePart]!
-            let currentCost = currentPurchaseOrder.averageCostPerSparePart[sparePart]!
-            
-            let firstPartOfTheEquation = ((Double(previousQuantity!) * previousCost!) + (Double(currentQuantity) * currentCost))
-            
-            return (firstPartOfTheEquation / Double((previousQuantity! + currentQuantity)))
+        }) {
+            if purchaseOrders.count == 0 {
+                return 0
+            } else if purchaseOrders.count == 1 {
+                return purchaseOrders.last?.averageCostPerSparePart[sparePart] ?? 0
+            } else {
+                currentPurchaseOrder = purchaseOrders.last!
+                currentPurchaseIndex = (purchaseOrders.endIndex) - 1
+                previousPurchaseOrder = purchaseOrders[currentPurchaseIndex - 1]
+                
+                let previousQuantity = previousPurchaseOrder?.spareParts[sparePart]!
+                let previousCost = previousPurchaseOrder?.averageCostPerSparePart[sparePart]!
+                let currentQuantity = currentPurchaseOrder.spareParts[sparePart]!
+                let currentCost = currentPurchaseOrder.averageCostPerSparePart[sparePart]!
+                
+                let firstPartOfTheEquation = ((Double(previousQuantity!) * previousCost!) + (Double(currentQuantity) * currentCost))
+                
+                return (firstPartOfTheEquation / Double((previousQuantity! + currentQuantity)))
+            }
         }
+        
+        return 0
     }
     
     static var costFactor: Double = UserDefaults.standard.double(forKey: "CostFactor")

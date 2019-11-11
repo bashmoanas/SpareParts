@@ -13,17 +13,20 @@ class SparePartDetailsTableViewController: UITableViewController, UINavigationCo
     @IBOutlet weak var detailsLabel: UILabel!
     
     @IBOutlet weak var stockLabel: UILabel!
+    @IBOutlet weak var restockLevelLabel: UILabel!
+
     @IBOutlet weak var salePriceLabel: UILabel!
     @IBOutlet weak var costLabel: UILabel!
-    @IBOutlet weak var priceInJPYLabel: UILabel!
     
+    @IBOutlet weak var priceInJPYLabel: UILabel!
     @IBOutlet weak var totalItemsPurchasedLabel: UILabel!
     @IBOutlet weak var averageCostPerItemLabel: UILabel!
     @IBOutlet weak var currentStockCostLabel: UILabel!
+    
     @IBOutlet weak var totalItemsSoldLabel: UILabel!
     @IBOutlet weak var totalSales: UILabel!
     
-    @IBOutlet weak var restockLevelLabel: UILabel!
+    @IBOutlet weak var isDiscontinuedSwitch: UISwitch!
     
     var sparePart: SparePart?
     
@@ -56,6 +59,7 @@ class SparePartDetailsTableViewController: UITableViewController, UINavigationCo
             averageCostPerItemLabel.text = "\(sparePart.calculateAverageCost(for: sparePart).convertToEgyptianCurrency)"
             currentStockCostLabel.text = "\(sparePart.currentStockCost.convertToEgyptianCurrency)"
             restockLevelLabel.text = (sparePart.restockLevel != nil) ? "\(sparePart.restockLevel!)" : "Not Set"
+            isDiscontinuedSwitch.isOn = sparePart.isDiscontinued
             
             let currentStock = sparePart.currentStock
             let restockLevel = sparePart.restockLevel ?? 0
@@ -64,6 +68,10 @@ class SparePartDetailsTableViewController: UITableViewController, UINavigationCo
                 stockLabel.textColor = .red
             }
         }
+    }
+    
+    @IBAction func isDiscontinuedToggled(_ sender: UISwitch) {
+        sparePart?.isDiscontinued = sender.isOn
     }
     
     // MARK: - Navigation

@@ -153,7 +153,7 @@
                             <tableViewSection id="6JM-UA-1KW">
                                 <cells>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" textLabel="oDL-sj-Jbl" detailTextLabel="rBd-ux-JKJ" style="IBUITableViewCellStyleValue1" id="D0K-j5-ELt">
-                                        <rect key="frame" x="0.0" y="185" width="288" height="43.5"/>
+                                        <rect key="frame" x="16" y="185" width="288" height="43.5"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="D0K-j5-ELt" id="7a3-zj-L4x">
                                             <rect key="frame" x="0.0" y="0.0" width="288" height="43.5"/>
@@ -177,7 +177,7 @@
                                         </tableViewCellContentView>
                                     </tableViewCell>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" textLabel="nUe-Ro-G3W" detailTextLabel="pc0-tU-lXO" style="IBUITableViewCellStyleValue1" id="7ii-aq-KRB">
-                                        <rect key="frame" x="0.0" y="228.5" width="288" height="43.5"/>
+                                        <rect key="frame" x="16" y="228.5" width="288" height="43.5"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="7ii-aq-KRB" id="oM1-Vz-Iha">
                                             <rect key="frame" x="0.0" y="0.0" width="288" height="43.5"/>

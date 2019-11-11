@@ -25,7 +25,7 @@ class SparePartDetailsTableViewController: UITableViewController, UINavigationCo
     
     @IBOutlet weak var totalItemsSoldLabel: UILabel!
     @IBOutlet weak var totalSales: UILabel!
-    
+        
     @IBOutlet weak var isDiscontinuedSwitch: UISwitch!
     
     var sparePart: SparePart?

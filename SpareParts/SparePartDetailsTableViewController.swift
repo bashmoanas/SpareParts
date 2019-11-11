@@ -23,7 +23,7 @@ class SparePartDetailsTableViewController: UITableViewController, UINavigationCo
     @IBOutlet weak var totalItemsSoldLabel: UILabel!
     @IBOutlet weak var totalSales: UILabel!
     
-    @IBOutlet weak var restockLevel: UILabel!
+    @IBOutlet weak var restockLevelLabel: UILabel!
     
     var sparePart: SparePart?
     
@@ -55,10 +55,15 @@ class SparePartDetailsTableViewController: UITableViewController, UINavigationCo
             totalItemsSoldLabel.text = "\(sparePart.totalItemsSold)"
             averageCostPerItemLabel.text = "\(sparePart.calculateAverageCost(for: sparePart).convertToEgyptianCurrency)"
             currentStockCostLabel.text = "\(sparePart.currentStockCost.convertToEgyptianCurrency)"
-            restockLevel.text = (sparePart.restockLevel != nil) ? "\(sparePart.restockLevel!)" : "Not Set"
+            restockLevelLabel.text = (sparePart.restockLevel != nil) ? "\(sparePart.restockLevel!)" : "Not Set"
+            
+            let currentStock = sparePart.currentStock
+            let restockLevel = sparePart.restockLevel ?? 0
+            
+            if currentStock < restockLevel {
+                stockLabel.textColor = .red
+            }
         }
-        
-        
     }
     
     // MARK: - Navigation

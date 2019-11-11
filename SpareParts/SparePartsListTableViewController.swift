@@ -10,6 +10,8 @@ import UIKit
 
 class SparePartsListTableViewController: UITableViewController {
     
+    @IBOutlet weak var footerLabel: UILabel!
+    
     let userDefaults = UserDefaults.standard
     var spareParts = [SparePart]()
     var selectedIndexPath: IndexPath?
@@ -31,7 +33,12 @@ class SparePartsListTableViewController: UITableViewController {
         if let savedSpareParts = SparePart.all {
             spareParts = savedSpareParts
             spareParts = spareParts.sorted(by: <)
-            }        
+        }
+        
+        footerLabel.text = """
+        \(SparePart.currentInventoryCount) Part(s) in stock
+        \(SparePart.currentInventoryCost.convertToEgyptianCurrency)
+        """
     }
     
     // MARK: - Table view data source
@@ -47,7 +54,7 @@ class SparePartsListTableViewController: UITableViewController {
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "sparePartCell", for: indexPath)
         let sparePart = spareParts[indexPath.row]
-                
+        
         cell.textLabel?.text =
         """
         \(sparePart.partNumber)
@@ -72,6 +79,7 @@ class SparePartsListTableViewController: UITableViewController {
             SparePart.save(spareParts: spareParts)
         }
     }
+    
     
     /*
      // Override to support rearranging the table view.

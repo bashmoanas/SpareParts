@@ -23,7 +23,7 @@ class AddPurchaseOrderTableViewController: UITableViewController {
         isEditing = true
         
     }
-        
+    
     // MARK: - Table view data source
     
     override func numberOfSections(in tableView: UITableView) -> Int {
@@ -42,10 +42,14 @@ class AddPurchaseOrderTableViewController: UITableViewController {
         \(sparePart.partNumber)
         \(sparePart.priceInJPY.convertToJapaneseCurrency)
         """
-        cell.detailTextLabel?.text = sparePart.details
+        cell.detailTextLabel?.text =
+        """
+        \(sparePart.details)
+        
+        """        
         return cell
     }
-        
+    
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         super.prepare(for: segue, sender: sender)
         

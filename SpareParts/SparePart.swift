@@ -23,6 +23,14 @@ class SparePart: Codable, Comparable {
         return (PurchaseOrder.allPurchasedSparePartsWithQuantities[self] ?? 0) - (CustomerOrder.allSoldSparePartsWithQuantities[self] ?? 0)
     }
     
+    var requiredStockForPurchase: Int? {
+        if restockLevel != nil && restockLevel! - currentStock > 0 {
+            return restockLevel! - currentStock
+        } else {
+            return nil
+        }
+    }
+    
     var cost: Double {
         return priceInJPY * SparePart.costFactor
     }
@@ -51,6 +59,28 @@ class SparePart: Codable, Comparable {
             }
         }
         return (cost + (cost * SparePart.noRuleProfit / 100)).rounded(to: 100)
+    }
+    
+    static var currentInventoryCount: Int {
+        let spareParts = SparePart.all!
+        var currentCount = 0
+        
+        for sparePart in spareParts {
+            currentCount += sparePart.currentStock
+        }
+        
+        return currentCount
+    }
+    
+    static var currentInventoryCost: Double {
+        let spareParts = SparePart.all!
+        var currentCost = 0.0
+        
+        for sparePart in spareParts {
+            currentCost += sparePart.averageCost
+        }
+        
+        return currentCost
     }
     
     init(details: String, partNumber: String, priceInJPY: Double, alternativeSalePrice: Double?, otherSalePrice: Double?, restockLevel: Int?) {

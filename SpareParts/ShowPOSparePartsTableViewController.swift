@@ -13,10 +13,10 @@ class ShowPOSparePartsTableViewController: UITableViewController {
     var purchaseOrder: PurchaseOrder?
     var spareParts = [SparePart: Int]()
     var sortedSpareParts = [SparePart]()
-    
+        
     override func viewDidLoad() {
         super.viewDidLoad()
-                
+        
         // Uncomment the following line to preserve selection between presentations
         // self.clearsSelectionOnViewWillAppear = false
         
@@ -52,7 +52,10 @@ class ShowPOSparePartsTableViewController: UITableViewController {
             let cell = tableView.dequeueReusableCell(withIdentifier: "ShowPOSpareParts", for: indexPath)
             let sparePart = sortedSpareParts[indexPath.row]
             
-            cell.textLabel?.text = "\(sparePart.partNumber)"
+            cell.textLabel?.text =
+            """
+            \(sparePart.partNumber)
+            """
             cell.detailTextLabel?.text = "\(purchaseOrder!.spareParts[sparePart]!)"
             return cell
         default:
@@ -97,7 +100,7 @@ class ShowPOSparePartsTableViewController: UITableViewController {
      return true
      }
      */
-        
+    
     // MARK: - Navigation
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
@@ -121,5 +124,5 @@ class ShowPOSparePartsTableViewController: UITableViewController {
             }
         }
     }
-        
+    
 }

@@ -10,7 +10,10 @@ import UIKit
 
 class PurchaseOrdersListTableViewController: UITableViewController {
     
+    @IBOutlet weak var addButton: UIBarButtonItem!
+    
     var purchaseOrders = [PurchaseOrder]()
+    var relatedPurchaseOrders: [PurchaseOrder]?
     var selectedSpareParts = [SparePart: Int]()
     let year = Calendar.current.component(.year, from: Date())
     var selectedIndexPath: IndexPath?
@@ -18,7 +21,9 @@ class PurchaseOrdersListTableViewController: UITableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        if let savedPurchaseOrders = PurchaseOrder.all {
+        if let relatedPurchaseOrders = relatedPurchaseOrders {
+            purchaseOrders = relatedPurchaseOrders
+        } else if let savedPurchaseOrders = PurchaseOrder.all {
             purchaseOrders = savedPurchaseOrders
         }
         // Uncomment the following line to preserve selection between presentations

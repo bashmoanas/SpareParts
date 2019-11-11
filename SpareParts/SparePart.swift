@@ -69,7 +69,9 @@ class SparePart: Codable, Comparable {
             return purchaseOrder.spareParts.keys.contains(sparePart)
         })
         
-        if purchaseOrders.count == 1 {
+        if purchaseOrders.count == 0 {
+            return 0
+        } else if purchaseOrders.count == 1 {
             return purchaseOrders.last?.averageCostPerSparePart[sparePart] ?? 0
         } else {
             currentPurchaseOrder = purchaseOrders.last!

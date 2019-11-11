@@ -10,7 +10,10 @@ import UIKit
 
 class CustomersOrderListTableViewController: UITableViewController {
     
+    @IBOutlet weak var addButton: UIBarButtonItem!
+    
     var customerOrders = [CustomerOrder]()
+    var relatedCustomerOrders: [CustomerOrder]?
     var selectedSpareParts = [SparePart: Int]()
     let year = Calendar.current.component(.year, from: Date())
     var selectedIndexPath: IndexPath?
@@ -18,7 +21,9 @@ class CustomersOrderListTableViewController: UITableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        if let savedCustomerOrders = CustomerOrder.all {
+        if let relatedCustomerOrders = relatedCustomerOrders {
+            customerOrders = relatedCustomerOrders
+        } else if let savedCustomerOrders = CustomerOrder.all {
             customerOrders = savedCustomerOrders
         }
         

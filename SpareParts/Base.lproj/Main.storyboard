@@ -83,7 +83,7 @@
                             <tableViewSection id="RQ7-cJ-Zlg">
                                 <cells>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" misplaced="YES" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" textLabel="KoL-Yg-K1v" style="IBUITableViewCellStyleDefault" id="WVP-O8-VLp">
-                                        <rect key="frame" x="16" y="18" width="288" height="44"/>
+                                        <rect key="frame" x="0.0" y="18" width="288" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="WVP-O8-VLp" id="OTc-zd-hdc">
                                             <rect key="frame" x="0.0" y="0.0" width="288" height="44"/>
@@ -101,7 +101,7 @@
                                         <color key="backgroundColor" cocoaTouchSystemColor="tableCellGroupedBackgroundColor"/>
                                     </tableViewCell>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" textLabel="DEI-YU-y0a" detailTextLabel="y3L-NF-xFH" style="IBUITableViewCellStyleValue1" id="Sqk-Wy-FKi">
-                                        <rect key="frame" x="16" y="62" width="288" height="43.5"/>
+                                        <rect key="frame" x="0.0" y="62" width="288" height="43.5"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="Sqk-Wy-FKi" id="p5H-iX-LiA">
                                             <rect key="frame" x="0.0" y="0.0" width="288" height="43.5"/>
@@ -340,6 +340,29 @@
                                                 </label>
                                             </subviews>
                                         </tableViewCellContentView>
+                                        <connections>
+                                            <segue destination="m0n-hY-nBZ" kind="show" identifier="ShowRelatedPurchaseOrders" id="KZ1-KT-di0"/>
+                                        </connections>
+                                    </tableViewCell>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" accessoryType="disclosureIndicator" indentationWidth="10" textLabel="GHG-Ed-bLF" style="IBUITableViewCellStyleDefault" id="C5Z-KM-Itc">
+                                        <rect key="frame" x="16" y="569" width="288" height="43.5"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="C5Z-KM-Itc" id="RAs-Qq-lKK">
+                                            <rect key="frame" x="0.0" y="0.0" width="262" height="43.5"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" insetsLayoutMarginsFromSafeArea="NO" text="Customer Orders" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontForContentSizeCategory="YES" adjustsFontSizeToFit="NO" id="GHG-Ed-bLF">
+                                                    <rect key="frame" x="15" y="0.0" width="239" height="43.5"/>
+                                                    <autoresizingMask key="autoresizingMask"/>
+                                                    <fontDescription key="fontDescription" style="UICTFontTextStyleBody"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                            </subviews>
+                                        </tableViewCellContentView>
+                                        <connections>
+                                            <segue destination="GUF-xq-RnU" kind="show" identifier="ShowRelatedCustomerOrders" id="AFB-A3-wys"/>
+                                        </connections>
                                     </tableViewCell>
                                 </cells>
                             </tableViewSection>
@@ -507,7 +530,7 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="DeJ-7H-HHi" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
                 <exit id="RCz-WR-Qpa" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
-            <point key="canvasLocation" x="1455" y="1179"/>
+            <point key="canvasLocation" x="1463" y="874"/>
         </scene>
         <!--Purchase Orders-->
         <scene sceneID="nNi-rZ-0EL">
@@ -557,6 +580,9 @@
                             </connections>
                         </barButtonItem>
                     </navigationItem>
+                    <connections>
+                        <outlet property="addButton" destination="Vcf-88-quv" id="FFb-Ac-B5l"/>
+                    </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="9sY-3m-xwg" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
@@ -1542,6 +1568,9 @@
                             </connections>
                         </barButtonItem>
                     </navigationItem>
+                    <connections>
+                        <outlet property="addButton" destination="u6t-Ko-9FG" id="2Pv-5H-T3u"/>
+                    </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="4Cp-dJ-9de" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
@@ -2814,5 +2843,7 @@
     </resources>
     <inferredMetricsTieBreakers>
         <segue reference="a6G-Wr-7PO"/>
+        <segue reference="AFB-A3-wys"/>
+        <segue reference="KZ1-KT-di0"/>
     </inferredMetricsTieBreakers>
 </document>

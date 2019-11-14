@@ -83,15 +83,13 @@ class SparePartDetailsTableViewController: UITableViewController, UINavigationCo
             destinationViewController.sparePart = sparePart
         } else if segue.identifier == "ShowRelatedPurchaseOrders" {
             let destinationViewController = segue.destination as! PurchaseOrdersListTableViewController
-            let relatedPurchaseOrders = PurchaseOrder.all?.filter { $0.spareParts.keys.contains(sparePart!) }
-            if let relatedPurchaseOrders = relatedPurchaseOrders {
+            if let relatedPurchaseOrders = sparePart?.relatedPurchaseOrders {
                 destinationViewController.relatedPurchaseOrders = relatedPurchaseOrders
                 destinationViewController.addButton.isEnabled = false
             }
         } else if segue.identifier == "ShowRelatedCustomerOrders" {
             let destinationViewController = segue.destination as! CustomersOrderListTableViewController
-            let relatedCustomerOrders = CustomerOrder.all?.filter { $0.spareParts.keys.contains(sparePart!) }
-            if let relatedCustomerOrders = relatedCustomerOrders {
+            if let relatedCustomerOrders = sparePart?.relatedCustomerOrders {
                 destinationViewController.relatedCustomerOrders = relatedCustomerOrders
                 destinationViewController.addButton.isEnabled = false
             }

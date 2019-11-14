@@ -7,6 +7,7 @@
 //
 
 import Foundation
+import Contacts
 
 extension Double {
     static let currencyEgyptian: NumberFormatter = {
@@ -55,3 +56,8 @@ extension FloatingPoint {
     }
 }
 
+extension CNContact: Comparable {
+    public static func <(lhs: CNContact, rhs: CNContact) -> Bool {
+        return lhs.givenName < rhs.givenName
+    }
+}

@@ -57,7 +57,6 @@ class AddPurchaseOrderTableViewController: UITableViewController {
             for indexPath in selectedRows {
                 let sparePart = self.availableSpareParts[indexPath.row]
                 self.selectedSpareParts[sparePart] = 1
-                print("\(sparePart.partNumber): \(sparePart.currentStock)")
             }
         }
     }

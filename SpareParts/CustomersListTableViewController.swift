@@ -11,6 +11,7 @@ import UIKit
 class CustomersListTableViewController: UITableViewController {
     
     var customers = [Customer]()
+    var selectedIndexPath: IndexPath?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -28,6 +29,10 @@ class CustomersListTableViewController: UITableViewController {
         if let savedCustomers = Customer.all {
             customers = savedCustomers
         }
+        
+        Customer.save(customers: customers)
+        
+        tableView.reloadData()
     }
 
     // MARK: - Table view data source
@@ -44,6 +49,7 @@ class CustomersListTableViewController: UITableViewController {
         let cell = tableView.dequeueReusableCell(withIdentifier: "CustomerCell", for: indexPath)
         let customer = customers[indexPath.row]
         cell.textLabel?.text = customer.name
+        cell.detailTextLabel?.text = "\(customer.totalDue.convertToEgyptianCurrency)"
         return cell
     }
     
@@ -64,7 +70,13 @@ class CustomersListTableViewController: UITableViewController {
     // MARK: - Navigation
 
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        
+        if segue.identifier == "ShowCustomerTransactions" {
+            selectedIndexPath = tableView.indexPathForSelectedRow
+            let customer = customers[selectedIndexPath!.row]
+            let destinationViewController = segue.destination as! CustomerTranasctionsTableViewController
+            destinationViewController.customer = customer
+            destinationViewController.title = customer.name
+        }
     }
     
     @IBAction func unwindToAllCustomersTableViewController(segue: UIStoryboardSegue) {

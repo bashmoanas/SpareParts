@@ -8,9 +8,29 @@
 
 import Foundation
 
-struct Customer: Codable {
+struct Customer: Equatable, Codable {
     
     var name: String
+    var payments: [Payment]?
+    
+    var relatedCustomerOrders: [CustomerOrder]? {
+        return CustomerOrder.all?.filter { $0.customer == self }
+    }
+    
+    var totalDue: Double {
+        var result = 0.0
+        for order in relatedCustomerOrders ?? [CustomerOrder]() {
+            result += order.totalDue
+        }
+        for payment in payments ?? [Payment]() {
+            result -= payment.amount
+        }
+        return result
+    }
+    
+    static func ==(lhs: Customer, rhs: Customer) -> Bool {
+        return lhs.name == rhs.name
+    }
     
     static var ArchiveURL = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask).first!.appendingPathComponent("customers").appendingPathExtension("plist")
     

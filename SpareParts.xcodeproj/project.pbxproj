@@ -18,6 +18,12 @@
 		A57C71DA236F219E0041F7E1 /* EditCustomerOrderTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A57C71D9236F219E0041F7E1 /* EditCustomerOrderTableViewController.swift */; };
 		A57C71DC23704A6E0041F7E1 /* ShowCOSparePartsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A57C71DB23704A6E0041F7E1 /* ShowCOSparePartsTableViewController.swift */; };
 		A57C71DE237052960041F7E1 /* EditCOSparePartsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A57C71DD237052960041F7E1 /* EditCOSparePartsTableViewController.swift */; };
+		A586FB0C237AE5D9008509BC /* Payment.swift in Sources */ = {isa = PBXBuildFile; fileRef = A586FB0B237AE5D9008509BC /* Payment.swift */; };
+		A586FB0E237AE60E008509BC /* Employee.swift in Sources */ = {isa = PBXBuildFile; fileRef = A586FB0D237AE60E008509BC /* Employee.swift */; };
+		A586FB10237AF296008509BC /* ReportsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A586FB0F237AF296008509BC /* ReportsTableViewController.swift */; };
+		A586FB12237AF2B2008509BC /* EmployeesTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A586FB11237AF2B2008509BC /* EmployeesTableViewController.swift */; };
+		A586FB14237AF2CA008509BC /* AddEmployeeTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A586FB13237AF2CA008509BC /* AddEmployeeTableViewController.swift */; };
+		A586FB16237D4EAE008509BC /* AddCustomerPaymentTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A586FB15237D4EAE008509BC /* AddCustomerPaymentTableViewController.swift */; };
 		A5B042C7235F5A5C001EB3C6 /* SparePartDetailsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5B042C6235F5A5B001EB3C6 /* SparePartDetailsTableViewController.swift */; };
 		A5DD23902356141B0036A180 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5DD238F2356141B0036A180 /* AppDelegate.swift */; };
 		A5DD23922356141B0036A180 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5DD23912356141B0036A180 /* SceneDelegate.swift */; };
@@ -32,6 +38,7 @@
 		A5DD23B023577DF50036A180 /* RulesListTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5DD23AF23577DF50036A180 /* RulesListTableViewController.swift */; };
 		A5DD23B22358A7240036A180 /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5DD23B12358A7240036A180 /* Extensions.swift */; };
 		A5DD23B4235DE21E0036A180 /* AddSparePartTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5DD23B3235DE21E0036A180 /* AddSparePartTableViewController.swift */; };
+		A5DD96A02379BFCE00BD96C4 /* CustomerTranasctionsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5DD969F2379BFCE00BD96C4 /* CustomerTranasctionsTableViewController.swift */; };
 		A5E2A81D2365C50000088A26 /* PurchaseOrder.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5E2A81C2365C50000088A26 /* PurchaseOrder.swift */; };
 		A5E2A81F2365C68100088A26 /* AddPurchaseOrderTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5E2A81E2365C68100088A26 /* AddPurchaseOrderTableViewController.swift */; };
 		A5E2A8212365CA4E00088A26 /* PurchaseOrdersListTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5E2A8202365CA4E00088A26 /* PurchaseOrdersListTableViewController.swift */; };
@@ -53,6 +60,12 @@
 		A57C71D9236F219E0041F7E1 /* EditCustomerOrderTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditCustomerOrderTableViewController.swift; sourceTree = "<group>"; };
 		A57C71DB23704A6E0041F7E1 /* ShowCOSparePartsTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShowCOSparePartsTableViewController.swift; sourceTree = "<group>"; };
 		A57C71DD237052960041F7E1 /* EditCOSparePartsTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditCOSparePartsTableViewController.swift; sourceTree = "<group>"; };
+		A586FB0B237AE5D9008509BC /* Payment.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Payment.swift; sourceTree = "<group>"; };
+		A586FB0D237AE60E008509BC /* Employee.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Employee.swift; sourceTree = "<group>"; };
+		A586FB0F237AF296008509BC /* ReportsTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReportsTableViewController.swift; sourceTree = "<group>"; };
+		A586FB11237AF2B2008509BC /* EmployeesTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmployeesTableViewController.swift; sourceTree = "<group>"; };
+		A586FB13237AF2CA008509BC /* AddEmployeeTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddEmployeeTableViewController.swift; sourceTree = "<group>"; };
+		A586FB15237D4EAE008509BC /* AddCustomerPaymentTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddCustomerPaymentTableViewController.swift; sourceTree = "<group>"; };
 		A5B042C6235F5A5B001EB3C6 /* SparePartDetailsTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SparePartDetailsTableViewController.swift; sourceTree = "<group>"; };
 		A5DD238C2356141B0036A180 /* SpareParts.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SpareParts.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		A5DD238F2356141B0036A180 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -69,6 +82,7 @@
 		A5DD23AF23577DF50036A180 /* RulesListTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RulesListTableViewController.swift; sourceTree = "<group>"; };
 		A5DD23B12358A7240036A180 /* Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
 		A5DD23B3235DE21E0036A180 /* AddSparePartTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddSparePartTableViewController.swift; sourceTree = "<group>"; };
+		A5DD969F2379BFCE00BD96C4 /* CustomerTranasctionsTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomerTranasctionsTableViewController.swift; sourceTree = "<group>"; };
 		A5E2A81C2365C50000088A26 /* PurchaseOrder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PurchaseOrder.swift; sourceTree = "<group>"; };
 		A5E2A81E2365C68100088A26 /* AddPurchaseOrderTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddPurchaseOrderTableViewController.swift; sourceTree = "<group>"; };
 		A5E2A8202365CA4E00088A26 /* PurchaseOrdersListTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PurchaseOrdersListTableViewController.swift; sourceTree = "<group>"; };
@@ -111,6 +125,13 @@
 				A5DD238F2356141B0036A180 /* AppDelegate.swift */,
 				A5DD23912356141B0036A180 /* SceneDelegate.swift */,
 				A5DD23952356141B0036A180 /* Main.storyboard */,
+				A586FB13237AF2CA008509BC /* AddEmployeeTableViewController.swift */,
+				A586FB11237AF2B2008509BC /* EmployeesTableViewController.swift */,
+				A586FB0F237AF296008509BC /* ReportsTableViewController.swift */,
+				A586FB0D237AE60E008509BC /* Employee.swift */,
+				A586FB0B237AE5D9008509BC /* Payment.swift */,
+				A586FB15237D4EAE008509BC /* AddCustomerPaymentTableViewController.swift */,
+				A5DD969F2379BFCE00BD96C4 /* CustomerTranasctionsTableViewController.swift */,
 				A57C71D1236EE3170041F7E1 /* AddCustomerTableViewController.swift */,
 				A57C71D3236EE6120041F7E1 /* CustomersListTableViewController.swift */,
 				A57C71CF236EDB040041F7E1 /* Customer.swift */,
@@ -225,6 +246,7 @@
 				A5DD23A823570C880036A180 /* PriceCalculatorTableViewController.swift in Sources */,
 				A5E2A82F23671AFC00088A26 /* ShowPOSparePartsTableViewController.swift in Sources */,
 				A57C71D2236EE3170041F7E1 /* AddCustomerTableViewController.swift in Sources */,
+				A586FB0E237AE60E008509BC /* Employee.swift in Sources */,
 				A5DD23A4235614680036A180 /* SparePart.swift in Sources */,
 				A51770B8236099F700D2C1DF /* EditSparePartTableViewController.swift in Sources */,
 				A57C71D0236EDB040041F7E1 /* Customer.swift in Sources */,
@@ -236,13 +258,19 @@
 				A5E2A8272365E8DC00088A26 /* EditPurchaseOrderTableViewController.swift in Sources */,
 				A5DD23A6235617F50036A180 /* SparePartsListTableViewController.swift in Sources */,
 				A5E2A8292365F21B00088A26 /* ViewPurchaseOrderTableViewController.swift in Sources */,
+				A586FB10237AF296008509BC /* ReportsTableViewController.swift in Sources */,
 				A5DD23B4235DE21E0036A180 /* AddSparePartTableViewController.swift in Sources */,
 				A5DD23922356141B0036A180 /* SceneDelegate.swift in Sources */,
+				A5DD96A02379BFCE00BD96C4 /* CustomerTranasctionsTableViewController.swift in Sources */,
+				A586FB0C237AE5D9008509BC /* Payment.swift in Sources */,
 				A5E2A8212365CA4E00088A26 /* PurchaseOrdersListTableViewController.swift in Sources */,
 				A57C71D8236F16450041F7E1 /* ViewCustomerOrderTableViewController.swift in Sources */,
+				A586FB14237AF2CA008509BC /* AddEmployeeTableViewController.swift in Sources */,
 				A5E2A82D23671ACB00088A26 /* EditPOSparePartsTableViewController.swift in Sources */,
+				A586FB16237D4EAE008509BC /* AddCustomerPaymentTableViewController.swift in Sources */,
 				A57C71DE237052960041F7E1 /* EditCOSparePartsTableViewController.swift in Sources */,
 				A5DD23B023577DF50036A180 /* RulesListTableViewController.swift in Sources */,
+				A586FB12237AF2B2008509BC /* EmployeesTableViewController.swift in Sources */,
 				A5E2A81F2365C68100088A26 /* AddPurchaseOrderTableViewController.swift in Sources */,
 				A57C71D6236F063B0041F7E1 /* AddCustomerOrderTableViewController.swift in Sources */,
 			);

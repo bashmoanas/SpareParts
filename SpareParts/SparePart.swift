@@ -61,6 +61,14 @@ class SparePart: Codable, Comparable {
         return (cost + (cost * SparePart.noRuleProfit / 100)).rounded(to: 100)
     }
     
+    var relatedPurchaseOrders: [PurchaseOrder]? {
+        return PurchaseOrder.all?.filter { $0.spareParts.keys.contains(self) }
+    }
+    
+    var relatedCustomerOrders: [CustomerOrder]? {
+        return CustomerOrder.all?.filter { $0.spareParts.keys.contains(self) }
+    }
+    
     static var currentInventoryCount: Int {
         let spareParts = SparePart.all!
         var currentCount = 0

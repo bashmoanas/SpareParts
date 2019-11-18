@@ -8,13 +8,15 @@
 
 import UIKit
 
-class CustomersListTableViewController: UITableViewController {
+class CustomersListTableViewController: UITableViewController, UINavigationControllerDelegate {
     
     var customers = [Customer]()
     var selectedIndexPath: IndexPath?
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        navigationController?.delegate = self
 
         // Uncomment the following line to preserve selection between presentations
         // self.clearsSelectionOnViewWillAppear = false
@@ -70,7 +72,7 @@ class CustomersListTableViewController: UITableViewController {
     // MARK: - Navigation
 
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        if segue.identifier == "ShowCustomerTransactions" {
+        if segue.identifier == "ShowCustomerInfo" {
             selectedIndexPath = tableView.indexPathForSelectedRow
             let customer = customers[selectedIndexPath!.row]
             let destinationViewController = segue.destination as! CustomerTranasctionsTableViewController

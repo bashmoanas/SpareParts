@@ -12,9 +12,10 @@ class EditCOSparePartsTableViewController: UITableViewController {
     
     @IBOutlet weak var partNumberLabel: UILabel!
     @IBOutlet weak var quantityLabel: UILabel!
-    @IBOutlet weak var quantitystepper: UIStepper!
     @IBOutlet weak var currentPriceLabel: UILabel!
     @IBOutlet weak var newSalePriceTextField: UITextField!
+    @IBOutlet weak var quantitystepper: UIStepper!
+    @IBOutlet weak var totalDueLabel: UILabel!
     
     var customerOrder: CustomerOrder?
     var sparePart: SparePart?

@@ -76,15 +76,15 @@ class CustomersOrderListTableViewController: UITableViewController {
     
     // MARK: - Navigation
     
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        if segue.identifier == "ViewCustomerOrder" {
-            selectedIndexPath = tableView.indexPathForSelectedRow
-            let customerOrder = customerOrders[selectedIndexPath!.row]
-            let destinationViewController = segue.destination as! ViewCustomerOrderTableViewController
-            destinationViewController.title = customerOrder.orderNumber
-            destinationViewController.customerOrder = customerOrder
-        }
-    }
+//    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+//        if segue.identifier == "ViewCustomerOrder" {
+//            selectedIndexPath = tableView.indexPathForSelectedRow
+//            let customerOrder = customerOrders[selectedIndexPath!.row]
+//            let destinationViewController = segue.destination as! ViewEditCustomerOrderTableViewController
+//            destinationViewController.title = customerOrder.orderNumber
+//            destinationViewController.customerOrder = customerOrder
+//        }
+//    }
     
     @IBAction func unwindToAllCustomerOrdersTableViewController(segue: UIStoryboardSegue) {
         guard segue.identifier == "AddSegue",

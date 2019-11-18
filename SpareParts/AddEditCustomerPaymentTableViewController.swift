@@ -1,5 +1,5 @@
 //
-//  AddCustomerPaymentTableViewController.swift
+//  AddEditCustomerPaymentTableViewController.swift
 //  SpareParts
 //
 //  Created by Anas Bashandy on 14/11/19.
@@ -8,7 +8,7 @@
 
 import UIKit
 
-class AddCustomerPaymentTableViewController: UITableViewController, UIPickerViewDataSource, UIPickerViewDelegate {
+class AddEditCustomerPaymentTableViewController: UITableViewController, UIPickerViewDataSource, UIPickerViewDelegate {
     
     @IBOutlet weak var amountTextField: UITextField!
     @IBOutlet weak var employeeTextField: UITextField!
@@ -23,6 +23,7 @@ class AddCustomerPaymentTableViewController: UITableViewController, UIPickerView
     
     let paymentDateLabelViewCellIndexPath = IndexPath(row: 1, section: 0)
     let paymentDatePickerViewCellIndexPath = IndexPath(row: 2, section: 0)
+    let notesIndexPath = IndexPath(row: 0, section: 1)
     
     var isDatePickerViewShown: Bool = false {
         didSet {
@@ -32,9 +33,6 @@ class AddCustomerPaymentTableViewController: UITableViewController, UIPickerView
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        let dateFormatter = DateFormatter()
-        dateFormatter.dateStyle = .medium
         
         let customerPicker = UIPickerView()
         customerPicker.delegate = self
@@ -49,7 +47,7 @@ class AddCustomerPaymentTableViewController: UITableViewController, UIPickerView
         employeeTextField.inputAccessoryView = toolbar
         
         if let payment = payment {
-            amountTextField.text = "\(payment.amount)"
+            amountTextField.text = "\(payment.amount.cleaned)"
             paymentDatePickerView.date = payment.date
             employeeTextField.text = payment.collectedBy.name
             notesTextView.text = payment.notes
@@ -67,10 +65,7 @@ class AddCustomerPaymentTableViewController: UITableViewController, UIPickerView
     }
     
     func updateDateView() {
-        let dateFormatter = DateFormatter()
-        dateFormatter.dateStyle = .medium
-        
-        paymentDateLabel.text = dateFormatter.string(from: paymentDatePickerView.date)
+        paymentDateLabel.text = CustomerOrder.orderDateFormatter.string(from: paymentDatePickerView.date)
     }
     
     func numberOfComponents(in pickerView: UIPickerView) -> Int {
@@ -99,6 +94,8 @@ class AddCustomerPaymentTableViewController: UITableViewController, UIPickerView
             } else {
                 return 0
             }
+        case notesIndexPath:
+            return 200.0
         default:
             return 44.0
         }
@@ -134,7 +131,9 @@ class AddCustomerPaymentTableViewController: UITableViewController, UIPickerView
     // MARK: - Navigation
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        guard segue.identifier == "SaveUnwind" else { return }
+        super.prepare(for: segue, sender: sender)
+        
+        guard segue.identifier == "SaveUnwindFromAddEditPayment" else { return }
         
         let amount = Double(amountTextField.text ?? "") ?? 0
         let paymentDate = paymentDatePickerView.date

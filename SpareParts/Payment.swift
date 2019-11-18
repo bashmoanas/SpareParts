@@ -8,7 +8,7 @@
 
 import Foundation
 
-struct Payment: Codable {
+struct Payment: Comparable, Codable {
     var amount: Double
     var date: Date
     var collectedBy: Employee
@@ -20,22 +20,7 @@ struct Payment: Codable {
         return formatter
     }()
     
-//    static var ArchiveURL = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask).first!.appendingPathComponent("customerPayments").appendingPathExtension("plist")
-//
-//    static func save(payments: [Payment]) {
-//        let propertyListEncoder = PropertyListEncoder()
-//        let savedPayments = try? propertyListEncoder.encode(payments)
-//        try? savedPayments?.write(to: ArchiveURL, options: .noFileProtection)
-//    }
-//
-//    static func loadPayments() -> [Payment]? {
-//        guard let savedPayments = try? Data(contentsOf: ArchiveURL) else { return nil}
-//        let propertyListDecoder = PropertyListDecoder()
-//
-//        return try? propertyListDecoder.decode([Payment].self, from: savedPayments)
-//    }
-//
-//    static var all: [Payment]? {
-//        return loadPayments()
-//    }
+    static func <(lhs: Payment, rhs: Payment) -> Bool {
+        return lhs.date < rhs.date
+    }
 }

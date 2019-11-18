@@ -35,29 +35,34 @@ struct CustomerOrder: Codable {
             }
             
         }
-
+        
         return sparePartsTotalPrice.reduce(0) { (currentTotal, salePrice) -> Double in
             return currentTotal + salePrice
         }
     }
-        
+    
     static var allSoldSparePartsWithQuantities: [SparePart: Int] {
         var allSoldSpareParts = [SparePart: Int]()
-        guard let customerOrders = CustomerOrder.all else { return [SparePart: Int]() }
-        for customerOrder in customerOrders {
-            for (sparePart, quantity) in customerOrder.spareParts {
-                if allSoldSpareParts.keys.contains(sparePart) {
-                    let oldQuantity = allSoldSpareParts[sparePart]!
-                    allSoldSpareParts.updateValue((oldQuantity + quantity), forKey: sparePart)
-                } else {
-                    allSoldSpareParts[sparePart] = quantity
+        
+        if let allCustomers = Customer.all {
+            for customer in allCustomers {
+                if let allOrders = customer.orders {
+                    for order in allOrders {
+                        for (sparePart, quantity) in order.spareParts {
+                            if allSoldSpareParts.keys.contains(sparePart) {
+                                let oldQuantity = allSoldSpareParts[sparePart]!
+                                allSoldSpareParts.updateValue(oldQuantity + quantity, forKey: sparePart)
+                            } else {
+                                allSoldSpareParts[sparePart] = quantity
+                            }
+                        }
+                    }
                 }
-
             }
         }
         return allSoldSpareParts
     }
-        
+    
     static var ArchiveURL = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask).first!.appendingPathComponent("customerOrders").appendingPathExtension("plist")
     
     static func save(customerOrders: [CustomerOrder]) {

@@ -12,14 +12,11 @@ struct Customer: Equatable, Codable {
     
     var name: String
     var payments: [Payment]?
-    
-    var relatedCustomerOrders: [CustomerOrder]? {
-        return CustomerOrder.all?.filter { $0.customer == self }
-    }
-    
+    var orders: [CustomerOrder]?
+        
     var totalDue: Double {
         var result = 0.0
-        for order in relatedCustomerOrders ?? [CustomerOrder]() {
+        for order in orders ?? [CustomerOrder]() {
             result += order.totalDue
         }
         for payment in payments ?? [Payment]() {

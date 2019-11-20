@@ -75,20 +75,24 @@ class PurchaseOrdersListTableViewController: UITableViewController {
         if segue.identifier == "ViewPurchaseOrder" {
             selectedIndexPath = tableView.indexPathForSelectedRow
             let purchaseOrder = purchaseOrders[selectedIndexPath!.row]
-            let destinationViewController = segue.destination as! ViewPurchaseOrderTableViewController
+            let destinationViewController = segue.destination as! ViewEditPurchaseOrderTableViewController
             destinationViewController.title = purchaseOrder.orderNumber
-            destinationViewController.purchaseOrder = purchaseOrder
+            destinationViewController.order = purchaseOrder
+        } else if segue.identifier == "" {
+            guard let sourceViewController = segue.source as? ViewEditPurchaseOrderTableViewController, let order = sourceViewController.order,
+                let selectedIndexPath = tableView.indexPathForSelectedRow else { return }
+            purchaseOrders[selectedIndexPath.row] = order
+            tableView.reloadRows(at: [selectedIndexPath], with: .automatic)
         }
     }
     
     @IBAction func unwindToPurchaseOrdersListTableViewController(segue: UIStoryboardSegue) {
-        guard segue.identifier == "AddSegue",
+        guard segue.identifier == "SaveUnwindFromAddPurchaseOrder",
             let sourceViewController = segue.source as? AddPurchaseOrderTableViewController else { return }
         selectedSpareParts = sourceViewController.selectedSpareParts
-        let newPurchaseOrder = PurchaseOrder(orderNumber: "\(purchaseOrders.count + 1)\(year)", spareParts: selectedSpareParts)
+        let newPurchaseOrder = PurchaseOrder(orderNumber: PurchaseOrder.generateOrderNumber(), spareParts: selectedSpareParts)
         purchaseOrders.append(newPurchaseOrder)
         PurchaseOrder.save(purchaseOrders: purchaseOrders)
         tableView.reloadData()
     }
-    
 }

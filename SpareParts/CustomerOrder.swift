@@ -8,12 +8,23 @@
 
 import Foundation
 
-struct CustomerOrder: Codable {
+struct CustomerOrder: Comparable, Codable {
     var orderNumber: String
     var date = Date()
     var customer: Customer?
     var spareParts: [SparePart: Int]
+        
+    static var orderNumberFactory = 0
     
+    static func generateOrderNumber() -> String {
+        orderNumberFactory += 1
+        
+        let calendar = Calendar.current
+        let year = calendar.component(.year, from: Date())
+        
+        return "\(orderNumberFactory)\(year)"
+    }
+        
     static let orderDateFormatter: DateFormatter = {
         let formatter = DateFormatter()
         formatter.dateStyle = .medium
@@ -32,9 +43,10 @@ struct CustomerOrder: Codable {
             } else {
                 let pricePerSparePart = sparePart.salePrice * Double(quantity)
                 sparePartsTotalPrice.append(pricePerSparePart)
+                
             }
-            
         }
+        
         
         return sparePartsTotalPrice.reduce(0) { (currentTotal, salePrice) -> Double in
             return currentTotal + salePrice
@@ -56,11 +68,16 @@ struct CustomerOrder: Codable {
                                 allSoldSpareParts[sparePart] = quantity
                             }
                         }
+                        
                     }
                 }
             }
         }
         return allSoldSpareParts
+    }
+    
+    static func <(lhs: CustomerOrder, rhs: CustomerOrder) -> Bool {
+        return lhs.date < rhs.date
     }
     
     static var ArchiveURL = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask).first!.appendingPathComponent("customerOrders").appendingPathExtension("plist")

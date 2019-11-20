@@ -18,13 +18,13 @@ class CustomerTranasctionsTableViewController: UITableViewController, UINavigati
         super.viewDidLoad()
         
         navigationController?.delegate = self
-        
-        payments = customer?.payments ?? [Payment]()
-        orders = customer?.orders ?? [CustomerOrder]()
     }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
+        
+        payments = customer?.payments?.sorted(by: <) ?? [Payment]()
+        orders = customer?.orders?.sorted(by: <) ?? [CustomerOrder]()
         
         tableView.reloadData()
     }
@@ -138,22 +138,21 @@ class CustomerTranasctionsTableViewController: UITableViewController, UINavigati
         if segue.identifier == "AddPayment" {
             let destinationViewController = segue.destination as! AddEditCustomerPaymentTableViewController
             destinationViewController.title = "Add Payment"
-        } else
-            if segue.identifier == "EditPayment" {
-                let destinationViewController = segue.destination as! AddEditCustomerPaymentTableViewController
-                let indexPath = tableView.indexPathForSelectedRow!
-                let payment = payments[indexPath.row]
-                destinationViewController.title = "Edit Payment"
-                destinationViewController.payment = payment
-            } else if segue.identifier == "AddOrder" {
-                let destinationViewController = segue.destination as! AddCustomerOrderTableViewController
-                destinationViewController.title = "Add Spare Parts"
-            } else if segue.identifier == "ViewOrder" {
-                let destinationViewController = segue.destination as! ViewEditCustomerOrderTableViewController
-                let indexPath = tableView.indexPathForSelectedRow!
-                let order = customer?.orders?[indexPath.row]
-                destinationViewController.title = "\(order?.orderNumber ?? "")"
-                destinationViewController.order = order
+        } else if segue.identifier == "EditPayment" {
+            let destinationViewController = segue.destination as! AddEditCustomerPaymentTableViewController
+            let indexPath = tableView.indexPathForSelectedRow!
+            let payment = payments[indexPath.row]
+            destinationViewController.title = "Edit Payment"
+            destinationViewController.payment = payment
+        } else if segue.identifier == "AddOrder" {
+            let destinationViewController = segue.destination as! AddCustomerOrderTableViewController
+            destinationViewController.title = "Add Spare Parts"
+        } else if segue.identifier == "ViewOrder" {
+            let destinationViewController = segue.destination as! ViewEditCustomerOrderTableViewController
+            let indexPath = tableView.indexPathForSelectedRow!
+            let order = orders[indexPath.row]
+            destinationViewController.title = "\(order.orderNumber)"
+            destinationViewController.order = order
         }
     }
     
@@ -161,7 +160,7 @@ class CustomerTranasctionsTableViewController: UITableViewController, UINavigati
         if segue.identifier == "SaveUnwindFromAddOrder",
             let sourceViewController = segue.source as? AddCustomerOrderTableViewController {
             let spareParts = sourceViewController.selectedSpareParts
-            let order = CustomerOrder(orderNumber: "12", date: Date(), customer: customer, spareParts: spareParts)
+            let order = CustomerOrder(orderNumber: CustomerOrder.generateOrderNumber(), customer: customer, spareParts: spareParts)
             orders.append(order)
             customer?.orders = orders
             tableView.reloadData()

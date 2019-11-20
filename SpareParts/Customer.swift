@@ -8,7 +8,7 @@
 
 import Foundation
 
-struct Customer: Equatable, Codable {
+struct Customer: Equatable, Comparable, Codable {
     
     var name: String
     var payments: [Payment]?
@@ -26,6 +26,10 @@ struct Customer: Equatable, Codable {
     }
     
     static func ==(lhs: Customer, rhs: Customer) -> Bool {
+        return lhs.name == rhs.name
+    }
+    
+    static func <(lhs: Customer, rhs: Customer) -> Bool {
         return lhs.name == rhs.name
     }
     

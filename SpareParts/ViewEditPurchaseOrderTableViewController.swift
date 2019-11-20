@@ -1,21 +1,22 @@
 //
-//  ViewCustomerOrderTableViewController.swift
+//  ViewEditPurchaseOrderTableViewController.swift
 //  SpareParts
 //
-//  Created by Anas Bashandy on 3/11/19.
+//  Created by Anas Bashandy on 20/11/19.
 //  Copyright © 2019 Anas Bashandy. All rights reserved.
 //
 
 import UIKit
 
-class ViewEditCustomerOrderTableViewController: UITableViewController {
+class ViewEditPurchaseOrderTableViewController: UITableViewController, UINavigationControllerDelegate {
     
-    var order: CustomerOrder?
+    var order: PurchaseOrder?
     var spareParts = [SparePart: Int]()
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        navigationController?.delegate = self
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -33,7 +34,7 @@ class ViewEditCustomerOrderTableViewController: UITableViewController {
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         switch section {
         case 0:
-            return 2
+            return 1
         default:
             return spareParts.count
         }
@@ -51,17 +52,11 @@ class ViewEditCustomerOrderTableViewController: UITableViewController {
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         switch indexPath.section {
         case 0:
-            if indexPath.row == 0 {
-                let orderDateCell = tableView.dequeueReusableCell(withIdentifier: "OrderDateCell", for: indexPath)
-                orderDateCell.detailTextLabel?.text = "\(CustomerOrder.orderDateFormatter.string(from: order?.date ?? Date()))"
-                return orderDateCell
-            } else {
-                let cell = tableView.dequeueReusableCell(withIdentifier: "TotalDueCell", for: indexPath)
-                cell.detailTextLabel?.text = "\(order?.totalDue.convertToEgyptianCurrency ?? "")"
-                return cell
-            }
+            let cell = tableView.dequeueReusableCell(withIdentifier: "PurchaseOrderTotalDueFOBCell", for: indexPath)
+            cell.detailTextLabel?.text = "\(order?.fobtotalCostJPY.convertToJapaneseCurrency ?? "")"
+            return cell
         default:
-            let sparePartsCell = tableView.dequeueReusableCell(withIdentifier: "SparePartCell", for: indexPath)
+            let purchaseOrderparePartsCell = tableView.dequeueReusableCell(withIdentifier: "PurchaseOrderSparePartCell", for: indexPath)
             
             let orderSpareParts = Array(spareParts.keys).sorted(by: <)
             let orderQuantities = Array(spareParts.values)
@@ -69,29 +64,20 @@ class ViewEditCustomerOrderTableViewController: UITableViewController {
             let currentSparePart = orderSpareParts[indexPath.row]
             let currentQuantity = orderQuantities[indexPath.row]
             
-            sparePartsCell.textLabel?.text = currentSparePart.partNumber
-            sparePartsCell.detailTextLabel?.text = "\(currentQuantity)"
+            purchaseOrderparePartsCell.textLabel?.text = currentSparePart.partNumber
+            purchaseOrderparePartsCell.detailTextLabel?.text = "\(currentQuantity)"
             
             
             
-            return sparePartsCell
+            return purchaseOrderparePartsCell
         }
     }
-    
-//    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-//        tableView.deselectRow(at: indexPath, animated: true)
-//
-//    }
     
     // MARK: - Navigation
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        if segue.identifier == "EditDate" {
-            let destinationViewController = segue.destination as! EditDateTableViewController
-            destinationViewController.title = "Edit Order Date"
-            destinationViewController.order = order
-        } else if segue.identifier == "EditSparePart" {
-            let destinationViewController = segue.destination as! EditCOSparePartsTableViewController
+        if segue.identifier == "EditPOSparePart" {
+            let destinationViewController = segue.destination as! EditPOSparePartsTableViewController
             let indexPath = tableView.indexPathForSelectedRow!
             let orderSpareParts = Array(spareParts.keys)
             let orderQuantities = Array(spareParts.values)
@@ -103,15 +89,20 @@ class ViewEditCustomerOrderTableViewController: UITableViewController {
             destinationViewController.order = order
             destinationViewController.sparePart = currentSparePart
             destinationViewController.quantity = currentQuantity
+        } else if segue.identifier == "EditPurchaseOrderDetails" {
+            let destinationViewController = segue.destination as! EditPurchaseOrderDetailsTableViewController
+            destinationViewController.title = "\(order?.orderNumber ?? "")"
+            destinationViewController.order = order
         }
     }
     
-    @IBAction func unwindToViewEditCustomerOrder(segue: UIStoryboardSegue) {
-        if segue.identifier == "SaveUnwindFromEditDate" {
-            let sourceViewController = segue.source as! EditDateTableViewController
+    @IBAction func unwindToViewEditPurchaseOrder(segue: UIStoryboardSegue) {
+        if segue.identifier == "SaveUnwindFromEditPurchasaeOrderDetails" {
+            let sourceViewController = segue.source as! EditPurchaseOrderDetailsTableViewController
             order = sourceViewController.order
-        } else if segue.identifier == "SaveUnwindFromEditCOSpareParts" {
-            let sourceViewController = segue.source as! EditCOSparePartsTableViewController
+            tableView.reloadData()
+        } else if segue.identifier == "SaveUnwindFromEditPOSpareParts" {
+            let sourceViewController = segue.source as! EditPOSparePartsTableViewController
             
             let indexPath = tableView.indexPathForSelectedRow!
             let sparePart = Array(spareParts.keys)[indexPath.row]
@@ -119,7 +110,16 @@ class ViewEditCustomerOrderTableViewController: UITableViewController {
             order?.spareParts = spareParts
             tableView.reloadData()
         }
-        
     }
+    
+    func navigationController(_ navigationController: UINavigationController, willShow viewController: UIViewController, animated: Bool) {
+        guard let destinationViewController = viewController as? PurchaseOrdersListTableViewController else { return }
+        
+        let indexPath = destinationViewController.selectedIndexPath!
+        destinationViewController.purchaseOrders[indexPath.row] = order!
+        PurchaseOrder.save(purchaseOrders: destinationViewController.purchaseOrders)
+        destinationViewController.tableView.reloadData()
+    }
+    
     
 }

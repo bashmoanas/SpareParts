@@ -14,7 +14,7 @@ class SparePartDetailsTableViewController: UITableViewController, UINavigationCo
     
     @IBOutlet weak var stockLabel: UILabel!
     @IBOutlet weak var restockLevelLabel: UILabel!
-
+    
     @IBOutlet weak var salePriceLabel: UILabel!
     @IBOutlet weak var costLabel: UILabel!
     
@@ -25,7 +25,7 @@ class SparePartDetailsTableViewController: UITableViewController, UINavigationCo
     
     @IBOutlet weak var totalItemsSoldLabel: UILabel!
     @IBOutlet weak var totalSales: UILabel!
-        
+    
     @IBOutlet weak var isDiscontinuedSwitch: UISwitch!
     
     var sparePart: SparePart?
@@ -88,28 +88,28 @@ class SparePartDetailsTableViewController: UITableViewController, UINavigationCo
                 destinationViewController.addButton.isEnabled = false
             }
         } else if segue.identifier == "ShowRelatedCustomerOrders" {
-            let destinationViewController = segue.destination as! CustomersOrderListTableViewController
-            if let relatedCustomerOrders = sparePart?.relatedCustomerOrders {
-                destinationViewController.relatedCustomerOrders = relatedCustomerOrders
-                destinationViewController.addButton.isEnabled = false
+//            let destinationViewController = segue.destination as! CustomersOrderListTableViewController
+//            if let relatedCustomerOrders = sparePart?.relatedCustomerOrders {
+//                destinationViewController.relatedCustomerOrders = relatedCustomerOrders
+//                destinationViewController.addButton.isEnabled = false
             }
-        }
+//        }
     }
-    
-    @IBAction func unwindToSparePartView(segue: UIStoryboardSegue) {
-        guard segue.identifier == "SaveUnwind" else { return }
-        if let sourceViewController = segue.source as? EditSparePartTableViewController {
-            sparePart = sourceViewController.sparePart
-        }
-    }
-    
-    func navigationController(_ navigationController: UINavigationController, willShow viewController: UIViewController, animated: Bool) {
-        guard let sparePart = sparePart,
-            let destinationViewController = viewController as? SparePartsListTableViewController else { return }
-        let indexPath = destinationViewController.selectedIndexPath!
-        destinationViewController.spareParts[indexPath.row] = sparePart
-        SparePart.save(spareParts: destinationViewController.spareParts)
-        destinationViewController.tableView.reloadData()
-    }
+//
+//    @IBAction func unwindToSparePartView(segue: UIStoryboardSegue) {
+//        guard segue.identifier == "SaveUnwind" else { return }
+//        if let sourceViewController = segue.source as? EditSparePartTableViewController {
+//            sparePart = sourceViewController.sparePart
+//        }
+//    }
+//
+//    func navigationController(_ navigationController: UINavigationController, willShow viewController: UIViewController, animated: Bool) {
+//        guard let sparePart = sparePart,
+//            let destinationViewController = viewController as? SparePartsListTableViewController else { return }
+//        let indexPath = destinationViewController.selectedIndexPath!
+//        destinationViewController.spareParts[indexPath.row] = sparePart
+//        SparePart.save(spareParts: destinationViewController.spareParts)
+//        destinationViewController.tableView.reloadData()
+//    }
     
 }

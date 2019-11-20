@@ -78,14 +78,13 @@ class AddCustomerOrderTableViewController: UITableViewController, CustomerOrderC
     func set(quantity: Int, sender: CustomerOrderCell) {
         if let indexPath = tableView.indexPath(for: sender) {
             quantities[indexPath.row] = quantity
-            
         }
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         super.prepare(for: segue, sender: sender)
         
-        guard segue.identifier == "AddOrder" else { return }
+        guard segue.identifier == "SaveUnwindFromAddOrder" else { return }
         if let selectedRows = tableView.indexPathsForSelectedRows {
             for indexPath in selectedRows {
                 let sparePart = self.availableSpareParts[indexPath.row]

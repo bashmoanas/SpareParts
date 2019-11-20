@@ -18,6 +18,17 @@ struct PurchaseOrder: Codable {
     var totalCustom: Double?
     var vat: Double?
     
+    static var orderNumberFactory = 0
+    
+    static func generateOrderNumber() -> String {
+        orderNumberFactory += 1
+        
+        let calendar = Calendar.current
+        let year = calendar.component(.year, from: Date())
+        
+        return "\(orderNumberFactory)\(year)"
+    }
+    
     var fobtotalCostJPY: Double {
         var sparePartsTotalCost = [Double]()
         for (sparePart, quantity) in spareParts {

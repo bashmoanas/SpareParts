@@ -8,16 +8,18 @@
 
 import UIKit
 
-class AddPurchaseOrderTableViewController: UITableViewController {
+class AddPurchaseOrderTableViewController: UITableViewController, PurchaseOrderCellDelegate {
     
     var availableSpareParts = [SparePart]()
     var selectedSpareParts = [SparePart: Int]()
+    lazy var quantities = Array(repeating: 1, count: availableSpareParts.count)
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
         if let savedSpareParts = SparePart.all {
             availableSpareParts = savedSpareParts
+            availableSpareParts = availableSpareParts.sorted(by: <)
         }
         
         isEditing = true
@@ -34,29 +36,59 @@ class AddPurchaseOrderTableViewController: UITableViewController {
         return SparePart.all?.count ?? 0
     }
     
-    override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "PurchaseOrderSparePartCell", for: indexPath)
+    override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {        
+        let cell = tableView.dequeueReusableCell(withIdentifier: "PurchaseOrderSparePartCell", for: indexPath) as! PurchaseOrderCell
+        cell.delegate = self
         let sparePart = availableSpareParts[indexPath.row]
-        cell.textLabel?.text =
-        """
-        \(sparePart.partNumber)
-        \(sparePart.priceInJPY.convertToJapaneseCurrency)
-        """
-        cell.detailTextLabel?.text =
-        """
-        \(sparePart.details)
+        cell.stepper.value = 1
+        cell.update(with: sparePart)
         
-        """        
+//        cell.textLabel?.text =
+//        """
+//        \(sparePart.partNumber)
+//        \(sparePart.priceInJPY.convertToJapaneseCurrency)
+//        """
+//        cell.detailTextLabel?.text =
+//        """
+//        \(sparePart.details)
+//
+//        """
         return cell
     }
     
+    
+    func set(quantity: Int, sender: PurchaseOrderCell) {
+        if let indexPath = tableView.indexPath(for: sender) {
+            quantities[indexPath.row] = quantity
+        }
+    }
+    
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+//        {
+//            super.prepare(for: segue, sender: sender)
+//            
+//            guard segue.identifier == "SaveUnwindFromAddOrder" else { return }
+//            if let selectedRows = tableView.indexPathsForSelectedRows {
+//                for indexPath in selectedRows {
+//                    let sparePart = self.availableSpareParts[indexPath.row]
+//                    let quantity = quantities[indexPath.row]
+//                    selectedSpareParts[sparePart] = quantity
+//                }
+//                
+//                
+//            }
+//        }
+        
+        
         super.prepare(for: segue, sender: sender)
+        
+        guard segue.identifier == "SaveUnwindFromAddPurchaseOrder" else { return }
         
         if let selectedRows = tableView.indexPathsForSelectedRows {
             for indexPath in selectedRows {
                 let sparePart = self.availableSpareParts[indexPath.row]
-                self.selectedSpareParts[sparePart] = 1
+                let quantity = quantities[indexPath.row]
+                self.selectedSpareParts[sparePart] = quantity
             }
         }
     }

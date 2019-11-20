@@ -12,10 +12,11 @@ class EditPOSparePartsTableViewController: UITableViewController {
     
     @IBOutlet weak var partNumberLabel: UILabel!
     @IBOutlet weak var quantityLabel: UILabel!
-    @IBOutlet weak var requiredQuantityLabel: UILabel!
-    @IBOutlet weak var quantityStepper: UIStepper!
+    @IBOutlet weak var purchasePriceLabel: UILabel!
+    @IBOutlet weak var quantitystepper: UIStepper!
+    @IBOutlet weak var totalDueLabel: UILabel!
     
-    var purchaseOrder: PurchaseOrder?
+    var order: PurchaseOrder?
     var sparePart: SparePart?
     var quantity: Int?
     
@@ -25,28 +26,46 @@ class EditPOSparePartsTableViewController: UITableViewController {
     }
     
     override func viewWillAppear(_ animated: Bool) {
-        if let purchaseOrder = purchaseOrder,
+        if let purchaseOrder = order,
             let sparePart = sparePart {
             partNumberLabel.text = sparePart.partNumber
-            requiredQuantityLabel.text = "Order up to \(sparePart.requiredStockForPurchase ?? 0)"
             quantity = purchaseOrder.spareParts[sparePart]
-            updateLabels()
+            quantitystepper.minimumValue = 1
+            updateQuantityLabel()
+            purchasePriceLabel.text = "\(sparePart.priceInJPY.convertToJapaneseCurrency)"
+            
+            updateTotalDue()
         }
     }
     
-    func updateLabels() {
-        quantityStepper.value = Double(quantity ?? 1)
+    func updateQuantityLabel() {
+        quantitystepper.value = Double(quantity ?? 1)
         quantityLabel.text = "\(quantity!)"
     }
     
+    func updateTotalDue() {
+        let currentQuantity = Double(quantity ?? 1)
+        if let purchasePrice = sparePart?.priceInJPY {
+            totalDueLabel.text = "\((purchasePrice * currentQuantity).convertToJapaneseCurrency)"
+        }
+    }
+        
     @IBAction func stepperValueChanged(_ sender: UIStepper) {
         let stepperValue = sender.value
         quantity = Int(stepperValue)
-        updateLabels()
+        updateQuantityLabel()
+        updateTotalDue()
     }
     
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         tableView.deselectRow(at: indexPath, animated: true)
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        super.prepare(for: segue, sender: sender)
+        
+        guard segue.identifier == "SaveUnwindFromEditPOSpareParts" else { return }
+        quantity = Int(quantitystepper.value)
     }
     
 }

@@ -66,7 +66,17 @@ class SparePart: Codable, Comparable {
     }
     
     var relatedCustomerOrders: [CustomerOrder]? {
-        return CustomerOrder.all?.filter { $0.spareParts.keys.contains(self) }
+        var relatedOrders = [CustomerOrder]()
+        guard let customers = Customer.all else { return nil }
+        
+        for customer in customers {
+            if let orders = customer.orders {
+                for order in orders {
+                    relatedOrders.append(order)
+                }
+            }
+        }
+        return relatedOrders.filter { $0.spareParts.keys.contains(self) }
     }
     
     static var currentInventoryCount: Int {

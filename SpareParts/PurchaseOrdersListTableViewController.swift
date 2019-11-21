@@ -13,17 +13,13 @@ class PurchaseOrdersListTableViewController: UITableViewController {
     @IBOutlet weak var addButton: UIBarButtonItem!
     
     var purchaseOrders = [PurchaseOrder]()
-    var relatedPurchaseOrders: [PurchaseOrder]?
     var selectedSpareParts = [SparePart: Int]()
-    let year = Calendar.current.component(.year, from: Date())
     var selectedIndexPath: IndexPath?
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        if let relatedPurchaseOrders = relatedPurchaseOrders {
-            purchaseOrders = relatedPurchaseOrders
-        } else if let savedPurchaseOrders = PurchaseOrder.all {
+        if let savedPurchaseOrders = PurchaseOrder.all {
             purchaseOrders = savedPurchaseOrders
         }
         // Uncomment the following line to preserve selection between presentations
@@ -33,31 +29,50 @@ class PurchaseOrdersListTableViewController: UITableViewController {
         // self.navigationItem.rightBarButtonItem = self.editButtonItem
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+        tableView.reloadData()
+    }
+    
     // MARK: - Table view data source
     
     override func numberOfSections(in tableView: UITableView) -> Int {
-        return 1
+        return 2
     }
     
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return purchaseOrders.count
+        switch section {
+        case 0:
+            return 1
+        default:
+            return purchaseOrders.count
+        }
     }
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "PurchaseOrderCell", for: indexPath)
-        let purchaseOrder = purchaseOrders[indexPath.row]
-        cell.textLabel?.text =
-        """
-        \(purchaseOrder.orderNumber)
-        \(PurchaseOrder.orderDateFormatter.string(from: Date()))
-        """
-        cell.detailTextLabel?.text = "\(purchaseOrder.fobtotalCostJPY.convertToJapaneseCurrency)"
-        return cell
+        switch indexPath.section {
+        case 0:
+            let cell = tableView.dequeueReusableCell(withIdentifier: "NoritsuCell", for: indexPath)
+            cell.detailTextLabel?.text = "\(NoritsuPayment.currentNoritsuBalance?.convertToJapaneseCurrency ?? "")"
+            return cell
+        default:
+            let cell = tableView.dequeueReusableCell(withIdentifier: "PurchaseOrderCell", for: indexPath)
+            let purchaseOrder = purchaseOrders[indexPath.row]
+            cell.textLabel?.text = "\(PurchaseOrder.orderDateFormatter.string(from: Date()))"
+            cell.detailTextLabel?.text = "\(purchaseOrder.fobtotalCostJPY.convertToJapaneseCurrency)"
+            return cell
+        }
+        
     }
     
     // Override to support conditional editing of the table view.
     override func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
-        return true
+        switch indexPath.section {
+        case 0:
+            return false
+        default:
+            return true
+        }
+        
     }
     
     // Override to support editing the table view.
@@ -67,6 +82,10 @@ class PurchaseOrdersListTableViewController: UITableViewController {
             PurchaseOrder.save(purchaseOrders: purchaseOrders)
             tableView.deleteRows(at: [indexPath], with: .fade)
         }
+    }
+    
+    override func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
+        section == 1 ? "Purchase Orders" : ""
     }
     
     // MARK: - Navigation

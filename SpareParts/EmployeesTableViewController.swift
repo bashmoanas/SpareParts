@@ -72,7 +72,7 @@ class EmployeesTableViewController: UITableViewController {
     }
     
     @IBAction func unwindToEmployeeTableViewController(segue: UIStoryboardSegue) {
-        guard segue.identifier == "SaveUnwind",
+        guard segue.identifier == "SaveUnwindFromAddEmployee",
             let sourceViewController = segue.source as? AddEmployeeTableViewController else { return }
         selectedContacts = sourceViewController.selectedContacts
         for contact in selectedContacts {

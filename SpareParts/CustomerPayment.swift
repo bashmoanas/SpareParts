@@ -8,7 +8,7 @@
 
 import Foundation
 
-struct Payment: Comparable, Codable {
+struct CustomerPayment: Comparable, Codable {
     var amount: Double
     var date: Date
     var collectedBy: Employee
@@ -20,7 +20,7 @@ struct Payment: Comparable, Codable {
         return formatter
     }()
     
-    static func <(lhs: Payment, rhs: Payment) -> Bool {
+    static func <(lhs: CustomerPayment, rhs: CustomerPayment) -> Bool {
         return lhs.date < rhs.date
     }
 }

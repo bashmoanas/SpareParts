@@ -12,7 +12,7 @@ class CustomerTranasctionsTableViewController: UITableViewController, UINavigati
     
     var customer: Customer?
     var orders = [CustomerOrder]()
-    var payments = [Payment]()
+    var payments = [CustomerPayment]()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -23,7 +23,7 @@ class CustomerTranasctionsTableViewController: UITableViewController, UINavigati
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         
-        payments = customer?.payments?.sorted(by: <) ?? [Payment]()
+        payments = customer?.payments?.sorted(by: <) ?? [CustomerPayment]()
         orders = customer?.orders?.sorted(by: <) ?? [CustomerOrder]()
         
         tableView.reloadData()
@@ -71,7 +71,7 @@ class CustomerTranasctionsTableViewController: UITableViewController, UINavigati
         default:
             let cell = tableView.dequeueReusableCell(withIdentifier: "TransactionCell", for: indexPath)
             let payment = payments[indexPath.row]
-            cell.textLabel?.text = "\(Payment.paymentDateFormatter.string(from: payment.date))"
+            cell.textLabel?.text = "\(CustomerPayment.paymentDateFormatter.string(from: payment.date))"
             cell.detailTextLabel?.text = "\(payment.amount.convertToEgyptianCurrency)"
             return cell
         }

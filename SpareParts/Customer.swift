@@ -11,7 +11,7 @@ import Foundation
 struct Customer: Equatable, Comparable, Codable {
     
     var name: String
-    var payments: [Payment]?
+    var payments: [CustomerPayment]?
     var orders: [CustomerOrder]?
         
     var totalDue: Double {
@@ -19,7 +19,7 @@ struct Customer: Equatable, Comparable, Codable {
         for order in orders ?? [CustomerOrder]() {
             result += order.totalDue
         }
-        for payment in payments ?? [Payment]() {
+        for payment in payments ?? [CustomerPayment]() {
             result -= payment.amount
         }
         return result

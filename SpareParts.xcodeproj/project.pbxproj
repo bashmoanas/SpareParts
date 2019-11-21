@@ -7,7 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		A512FF7E238515CE0065283B /* CustomersEmployeesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A512FF7D238515CE0065283B /* CustomersEmployeesViewController.swift */; };
 		A512FF80238553F10065283B /* PurchaseOrderCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A512FF7F238553F10065283B /* PurchaseOrderCell.swift */; };
 		A512FF8223855AF30065283B /* ViewEditPurchaseOrderTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A512FF8123855AF30065283B /* ViewEditPurchaseOrderTableViewController.swift */; };
 		A512FF84238560740065283B /* EditPurchaseOrderDateTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A512FF83238560740065283B /* EditPurchaseOrderDateTableViewController.swift */; };
@@ -18,9 +17,8 @@
 		A57C71D4236EE6120041F7E1 /* CustomersListTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A57C71D3236EE6120041F7E1 /* CustomersListTableViewController.swift */; };
 		A57C71D8236F16450041F7E1 /* ViewEditCustomerOrderTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A57C71D7236F16450041F7E1 /* ViewEditCustomerOrderTableViewController.swift */; };
 		A57C71DE237052960041F7E1 /* EditCOSparePartsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A57C71DD237052960041F7E1 /* EditCOSparePartsTableViewController.swift */; };
-		A586FB0C237AE5D9008509BC /* Payment.swift in Sources */ = {isa = PBXBuildFile; fileRef = A586FB0B237AE5D9008509BC /* Payment.swift */; };
+		A586FB0C237AE5D9008509BC /* CustomerPayment.swift in Sources */ = {isa = PBXBuildFile; fileRef = A586FB0B237AE5D9008509BC /* CustomerPayment.swift */; };
 		A586FB0E237AE60E008509BC /* Employee.swift in Sources */ = {isa = PBXBuildFile; fileRef = A586FB0D237AE60E008509BC /* Employee.swift */; };
-		A586FB10237AF296008509BC /* ReportsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A586FB0F237AF296008509BC /* ReportsTableViewController.swift */; };
 		A586FB12237AF2B2008509BC /* EmployeesTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A586FB11237AF2B2008509BC /* EmployeesTableViewController.swift */; };
 		A586FB14237AF2CA008509BC /* AddEmployeeTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A586FB13237AF2CA008509BC /* AddEmployeeTableViewController.swift */; };
 		A586FB16237D4EAE008509BC /* AddEditCustomerPaymentTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A586FB15237D4EAE008509BC /* AddEditCustomerPaymentTableViewController.swift */; };
@@ -48,10 +46,12 @@
 		A5E2A8212365CA4E00088A26 /* PurchaseOrdersListTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5E2A8202365CA4E00088A26 /* PurchaseOrdersListTableViewController.swift */; };
 		A5E2A8292365F21B00088A26 /* EditPurchaseOrderDetailsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5E2A8282365F21B00088A26 /* EditPurchaseOrderDetailsTableViewController.swift */; };
 		A5E2A82D23671ACB00088A26 /* EditPOSparePartsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5E2A82C23671ACB00088A26 /* EditPOSparePartsTableViewController.swift */; };
+		A5F21BC023859A0700B73AC7 /* AddEditNoritsuPaymentTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5F21BBF23859A0600B73AC7 /* AddEditNoritsuPaymentTableViewController.swift */; };
+		A5F21BC223859B3D00B73AC7 /* NoritsuPayment.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5F21BC123859B3D00B73AC7 /* NoritsuPayment.swift */; };
+		A5F21BC423859E4300B73AC7 /* AllNoritsuPaymentsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5F21BC323859E4300B73AC7 /* AllNoritsuPaymentsTableViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		A512FF7D238515CE0065283B /* CustomersEmployeesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomersEmployeesViewController.swift; sourceTree = "<group>"; };
 		A512FF7F238553F10065283B /* PurchaseOrderCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PurchaseOrderCell.swift; sourceTree = "<group>"; };
 		A512FF8123855AF30065283B /* ViewEditPurchaseOrderTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewEditPurchaseOrderTableViewController.swift; sourceTree = "<group>"; };
 		A512FF83238560740065283B /* EditPurchaseOrderDateTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditPurchaseOrderDateTableViewController.swift; sourceTree = "<group>"; };
@@ -62,9 +62,8 @@
 		A57C71D3236EE6120041F7E1 /* CustomersListTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomersListTableViewController.swift; sourceTree = "<group>"; };
 		A57C71D7236F16450041F7E1 /* ViewEditCustomerOrderTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewEditCustomerOrderTableViewController.swift; sourceTree = "<group>"; };
 		A57C71DD237052960041F7E1 /* EditCOSparePartsTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditCOSparePartsTableViewController.swift; sourceTree = "<group>"; };
-		A586FB0B237AE5D9008509BC /* Payment.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Payment.swift; sourceTree = "<group>"; };
+		A586FB0B237AE5D9008509BC /* CustomerPayment.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomerPayment.swift; sourceTree = "<group>"; };
 		A586FB0D237AE60E008509BC /* Employee.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Employee.swift; sourceTree = "<group>"; };
-		A586FB0F237AF296008509BC /* ReportsTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReportsTableViewController.swift; sourceTree = "<group>"; };
 		A586FB11237AF2B2008509BC /* EmployeesTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmployeesTableViewController.swift; sourceTree = "<group>"; };
 		A586FB13237AF2CA008509BC /* AddEmployeeTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddEmployeeTableViewController.swift; sourceTree = "<group>"; };
 		A586FB15237D4EAE008509BC /* AddEditCustomerPaymentTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddEditCustomerPaymentTableViewController.swift; sourceTree = "<group>"; };
@@ -94,6 +93,9 @@
 		A5E2A8202365CA4E00088A26 /* PurchaseOrdersListTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PurchaseOrdersListTableViewController.swift; sourceTree = "<group>"; };
 		A5E2A8282365F21B00088A26 /* EditPurchaseOrderDetailsTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditPurchaseOrderDetailsTableViewController.swift; sourceTree = "<group>"; };
 		A5E2A82C23671ACB00088A26 /* EditPOSparePartsTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditPOSparePartsTableViewController.swift; sourceTree = SOURCE_ROOT; };
+		A5F21BBF23859A0600B73AC7 /* AddEditNoritsuPaymentTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddEditNoritsuPaymentTableViewController.swift; sourceTree = "<group>"; };
+		A5F21BC123859B3D00B73AC7 /* NoritsuPayment.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NoritsuPayment.swift; sourceTree = "<group>"; };
+		A5F21BC323859E4300B73AC7 /* AllNoritsuPaymentsTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AllNoritsuPaymentsTableViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -131,10 +133,9 @@
 				A5DD23952356141B0036A180 /* Main.storyboard */,
 				A586FB13237AF2CA008509BC /* AddEmployeeTableViewController.swift */,
 				A586FB11237AF2B2008509BC /* EmployeesTableViewController.swift */,
-				A586FB0F237AF296008509BC /* ReportsTableViewController.swift */,
 				A586FB0D237AE60E008509BC /* Employee.swift */,
-				A586FB0B237AE5D9008509BC /* Payment.swift */,
 				A586FB15237D4EAE008509BC /* AddEditCustomerPaymentTableViewController.swift */,
+				A586FB0B237AE5D9008509BC /* CustomerPayment.swift */,
 				A5BE05F923828265004CFE9C /* DatePickerCell.swift */,
 				A57C71DD237052960041F7E1 /* EditCOSparePartsTableViewController.swift */,
 				A5BE05FB2382A717004CFE9C /* EditDateTableViewController.swift */,
@@ -145,7 +146,6 @@
 				A57C71CD236ED9790041F7E1 /* CustomerOrder.swift */,
 				A57C71D1236EE3170041F7E1 /* AddCustomerTableViewController.swift */,
 				A57C71D3236EE6120041F7E1 /* CustomersListTableViewController.swift */,
-				A512FF7D238515CE0065283B /* CustomersEmployeesViewController.swift */,
 				A57C71CF236EDB040041F7E1 /* Customer.swift */,
 				A5E2A8282365F21B00088A26 /* EditPurchaseOrderDetailsTableViewController.swift */,
 				A5E2A82C23671ACB00088A26 /* EditPOSparePartsTableViewController.swift */,
@@ -155,6 +155,9 @@
 				A5E2A8202365CA4E00088A26 /* PurchaseOrdersListTableViewController.swift */,
 				A512FF7F238553F10065283B /* PurchaseOrderCell.swift */,
 				A5E2A81C2365C50000088A26 /* PurchaseOrder.swift */,
+				A5F21BC323859E4300B73AC7 /* AllNoritsuPaymentsTableViewController.swift */,
+				A5F21BBF23859A0600B73AC7 /* AddEditNoritsuPaymentTableViewController.swift */,
+				A5F21BC123859B3D00B73AC7 /* NoritsuPayment.swift */,
 				A5B042C6235F5A5B001EB3C6 /* SparePartDetailsTableViewController.swift */,
 				A5DD23B3235DE21E0036A180 /* AddSparePartTableViewController.swift */,
 				A51770B7236099F700D2C1DF /* EditSparePartTableViewController.swift */,
@@ -244,6 +247,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				A586FB18237DB0ED008509BC /* AddCustomerOrderTableViewController.swift in Sources */,
+				A5F21BC223859B3D00B73AC7 /* NoritsuPayment.swift in Sources */,
 				A5DD23AE23577CB90036A180 /* AddRuleTableViewController.swift in Sources */,
 				A57C71D4236EE6120041F7E1 /* CustomersListTableViewController.swift in Sources */,
 				A512FF84238560740065283B /* EditPurchaseOrderDateTableViewController.swift in Sources */,
@@ -264,13 +268,12 @@
 				A5B042C7235F5A5C001EB3C6 /* SparePartDetailsTableViewController.swift in Sources */,
 				A5DD23A6235617F50036A180 /* SparePartsListTableViewController.swift in Sources */,
 				A5E2A8292365F21B00088A26 /* EditPurchaseOrderDetailsTableViewController.swift in Sources */,
-				A586FB10237AF296008509BC /* ReportsTableViewController.swift in Sources */,
 				A5DD23B4235DE21E0036A180 /* AddSparePartTableViewController.swift in Sources */,
 				A5BE05FA23828265004CFE9C /* DatePickerCell.swift in Sources */,
 				A5DD23922356141B0036A180 /* SceneDelegate.swift in Sources */,
 				A5DD96A02379BFCE00BD96C4 /* CustomerTranasctionsTableViewController.swift in Sources */,
-				A512FF7E238515CE0065283B /* CustomersEmployeesViewController.swift in Sources */,
-				A586FB0C237AE5D9008509BC /* Payment.swift in Sources */,
+				A586FB0C237AE5D9008509BC /* CustomerPayment.swift in Sources */,
+				A5F21BC023859A0700B73AC7 /* AddEditNoritsuPaymentTableViewController.swift in Sources */,
 				A5E2A8212365CA4E00088A26 /* PurchaseOrdersListTableViewController.swift in Sources */,
 				A512FF80238553F10065283B /* PurchaseOrderCell.swift in Sources */,
 				A57C71D8236F16450041F7E1 /* ViewEditCustomerOrderTableViewController.swift in Sources */,
@@ -278,6 +281,7 @@
 				A5E2A82D23671ACB00088A26 /* EditPOSparePartsTableViewController.swift in Sources */,
 				A586FB16237D4EAE008509BC /* AddEditCustomerPaymentTableViewController.swift in Sources */,
 				A57C71DE237052960041F7E1 /* EditCOSparePartsTableViewController.swift in Sources */,
+				A5F21BC423859E4300B73AC7 /* AllNoritsuPaymentsTableViewController.swift in Sources */,
 				A5DD23B023577DF50036A180 /* RulesListTableViewController.swift in Sources */,
 				A586FB12237AF2B2008509BC /* EmployeesTableViewController.swift in Sources */,
 				A5E2A81F2365C68100088A26 /* AddPurchaseOrderTableViewController.swift in Sources */,

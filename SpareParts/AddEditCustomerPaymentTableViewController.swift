@@ -19,7 +19,7 @@ class AddEditCustomerPaymentTableViewController: UITableViewController, UIPicker
     
     let employees = Employee.all
     var employee: Employee?
-    var payment: Payment?
+    var payment: CustomerPayment?
     
     let paymentDateLabelViewCellIndexPath = IndexPath(row: 1, section: 0)
     let paymentDatePickerViewCellIndexPath = IndexPath(row: 2, section: 0)
@@ -141,6 +141,6 @@ class AddEditCustomerPaymentTableViewController: UITableViewController, UIPicker
         employee = employees?.filter { $0.name == employeeName}.first
         let notes = notesTextView.text ?? ""
         
-        payment = Payment(amount: amount, date: paymentDate, collectedBy: employee!, notes: notes)
+        payment = CustomerPayment(amount: amount, date: paymentDate, collectedBy: employee!, notes: notes)
     }
 }

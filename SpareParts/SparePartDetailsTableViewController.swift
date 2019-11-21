@@ -81,19 +81,7 @@ class SparePartDetailsTableViewController: UITableViewController, UINavigationCo
             let destinationViewController = segue.destination as! EditSparePartTableViewController
             destinationViewController.title = sparePart?.partNumber
             destinationViewController.sparePart = sparePart
-        } else if segue.identifier == "ShowRelatedPurchaseOrders" {
-            let destinationViewController = segue.destination as! PurchaseOrdersListTableViewController
-            if let relatedPurchaseOrders = sparePart?.relatedPurchaseOrders {
-                destinationViewController.relatedPurchaseOrders = relatedPurchaseOrders
-                destinationViewController.addButton.isEnabled = false
-            }
-        } else if segue.identifier == "ShowRelatedCustomerOrders" {
-//            let destinationViewController = segue.destination as! CustomersOrderListTableViewController
-//            if let relatedCustomerOrders = sparePart?.relatedCustomerOrders {
-//                destinationViewController.relatedCustomerOrders = relatedCustomerOrders
-//                destinationViewController.addButton.isEnabled = false
-            }
-//        }
+        }
     }
 //
 //    @IBAction func unwindToSparePartView(segue: UIStoryboardSegue) {

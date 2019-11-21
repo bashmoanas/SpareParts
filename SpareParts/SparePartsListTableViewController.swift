@@ -9,23 +9,13 @@
 import UIKit
 
 class SparePartsListTableViewController: UITableViewController {
-    
-    @IBOutlet weak var footerLabel: UILabel!
-    
+        
     let userDefaults = UserDefaults.standard
     var spareParts = [SparePart]()
     var selectedIndexPath: IndexPath?
     var allPurchases = PurchaseOrder.allPurchasedSparePartsWithQuantities
     var allSales = CustomerOrder.allSoldSparePartsWithQuantities
-    
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        // Uncomment the following line to preserve selection between presentations
-        // self.clearsSelectionOnViewWillAppear = false
         
-        //        self.navigationItem.leftBarButtonItem = self.editButtonItem
-    }
-    
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         tableView.reloadData()
@@ -34,42 +24,44 @@ class SparePartsListTableViewController: UITableViewController {
             spareParts = savedSpareParts
             spareParts = spareParts.sorted(by: <)
         }
-        
-        footerLabel.text = """
-        \(SparePart.currentInventoryCount) Part(s) in stock
-        \(SparePart.currentInventoryCost.convertToEgyptianCurrency)
-        """
     }
     
     // MARK: - Table view data source
     
     override func numberOfSections(in tableView: UITableView) -> Int {
-        return 1
+        return 2
     }
     
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return spareParts.count
+        section == 0 ? spareParts.count : 1
     }
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "sparePartCell", for: indexPath)
-        let sparePart = spareParts[indexPath.row]
-        
-        cell.textLabel?.text =
-        """
-        \(sparePart.partNumber)
-        \(sparePart.alternativeSalePrice != nil ? sparePart.alternativeSalePrice!.convertToEgyptianCurrency : sparePart.salePrice.convertToEgyptianCurrency)
-        """
-        cell.detailTextLabel?.text =
-        """
-        \(sparePart.details)
-        \(sparePart.currentStock)
-        """
-        return cell
+        switch indexPath.section {
+        case 0:
+            let cell = tableView.dequeueReusableCell(withIdentifier: "sparePartCell", for: indexPath)
+            let sparePart = spareParts[indexPath.row]
+            
+            cell.textLabel?.text =
+            """
+            \(sparePart.partNumber)
+            \(sparePart.alternativeSalePrice != nil ? sparePart.alternativeSalePrice!.convertToEgyptianCurrency : sparePart.salePrice.convertToEgyptianCurrency)
+            """
+            cell.detailTextLabel?.text =
+            """
+            \(sparePart.details)
+            \(sparePart.currentStock)
+            """
+            return cell
+        default:
+            let cell = tableView.dequeueReusableCell(withIdentifier: "FooterCell", for: indexPath)
+            cell.textLabel?.text = "\(SparePart.currentInventoryCount) part(s) in stock"
+            return cell
+        }
     }
     
     override func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
-        return true
+        indexPath.section == 0 ? true : false
     }
     
     override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
@@ -79,23 +71,6 @@ class SparePartsListTableViewController: UITableViewController {
             SparePart.save(spareParts: spareParts)
         }
     }
-    
-    
-    /*
-     // Override to support rearranging the table view.
-     override func tableView(_ tableView: UITableView, moveRowAt fromIndexPath: IndexPath, to: IndexPath) {
-     
-     }
-     */
-    
-    /*
-     // Override to support conditional rearranging of the table view.
-     override func tableView(_ tableView: UITableView, canMoveRowAt indexPath: IndexPath) -> Bool {
-     // Return false if you do not want the item to be re-orderable.
-     return true
-     }
-     */
-    
     
     @IBAction func shareSparePartsList(_ sender: UIBarButtonItem) {
         let fileName = "Current Stock.csv"

@@ -102,6 +102,19 @@ struct PurchaseOrder: Codable {
         }
         return allPurchasedSpareParts
     }
+    
+    static var allPurchasesTotal: Double? {
+        var total = 0.0
+        
+        guard let allPurchases = PurchaseOrder.all else { return nil }
+        
+        for purchase in allPurchases {
+            let amount = purchase.ciftotalCostJPY
+            total += amount
+        }
+        
+        return total
+    }
             
     static var ArchiveURL = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask).first!.appendingPathComponent("purchaseOrders").appendingPathExtension("plist")
     

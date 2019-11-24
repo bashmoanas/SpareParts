@@ -72,6 +72,12 @@ class SparePartsListTableViewController: UITableViewController {
         }
     }
     
+    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        if indexPath.section == 1 {
+            tableView.deselectRow(at: indexPath, animated: true)
+        }
+    }
+    
     @IBAction func shareSparePartsList(_ sender: UIBarButtonItem) {
         let fileName = "Current Stock.csv"
         let path = URL(fileURLWithPath: NSTemporaryDirectory()).appendingPathComponent(fileName)

@@ -54,7 +54,7 @@ class EditSparePartTableViewController: UITableViewController {
     // MARK: - Navigation
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        guard segue.identifier == "SaveUnwind" else { return }
+        guard segue.identifier == "SaveUnwindFromEditSparePart" else { return }
         
         let descriptionText = descriptionTextField.text ?? ""
         let partNumber = partNumberTextField.text ?? ""

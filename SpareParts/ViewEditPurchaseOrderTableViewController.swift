@@ -11,7 +11,7 @@ import UIKit
 class ViewEditPurchaseOrderTableViewController: UITableViewController, UINavigationControllerDelegate {
     
     var order: PurchaseOrder?
-    var spareParts = [SparePart: Int]()
+    var sortedSpareParts = [SparePart]()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -22,7 +22,7 @@ class ViewEditPurchaseOrderTableViewController: UITableViewController, UINavigat
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         
-        spareParts = order?.spareParts ?? [SparePart: Int]()
+        sortedSpareParts = Array(order!.spareParts.keys).sorted(by: <)
         
         tableView.reloadData()
     }
@@ -36,7 +36,7 @@ class ViewEditPurchaseOrderTableViewController: UITableViewController, UINavigat
         case 0:
             return 1
         default:
-            return spareParts.count
+            return sortedSpareParts.count
         }
     }
     
@@ -57,19 +57,30 @@ class ViewEditPurchaseOrderTableViewController: UITableViewController, UINavigat
             return cell
         default:
             let purchaseOrderparePartsCell = tableView.dequeueReusableCell(withIdentifier: "PurchaseOrderSparePartCell", for: indexPath)
+            let sparePart = sortedSpareParts[indexPath.row]
             
-            let orderSpareParts = Array(spareParts.keys).sorted(by: <)
-            let orderQuantities = Array(spareParts.values)
-            
-            let currentSparePart = orderSpareParts[indexPath.row]
-            let currentQuantity = orderQuantities[indexPath.row]
-            
-            purchaseOrderparePartsCell.textLabel?.text = currentSparePart.partNumber
-            purchaseOrderparePartsCell.detailTextLabel?.text = "\(currentQuantity)"
-            
-            
+            purchaseOrderparePartsCell.textLabel?.text = sparePart.partNumber
+            purchaseOrderparePartsCell.detailTextLabel?.text = "\(order?.spareParts[sparePart] ?? 0)"
             
             return purchaseOrderparePartsCell
+        }
+    }
+    
+    override func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
+        switch indexPath.section {
+        case 0:
+            return false
+        default:
+            return true
+        }
+        
+    }
+    
+    override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
+        if editingStyle == .delete {
+            let removedSparePart = sortedSpareParts.remove(at: indexPath.row)
+            order?.spareParts.removeValue(forKey: removedSparePart)
+            tableView.deleteRows(at: [indexPath], with: .fade)
         }
     }
     
@@ -79,16 +90,13 @@ class ViewEditPurchaseOrderTableViewController: UITableViewController, UINavigat
         if segue.identifier == "EditPOSparePart" {
             let destinationViewController = segue.destination as! EditPOSparePartsTableViewController
             let indexPath = tableView.indexPathForSelectedRow!
-            let orderSpareParts = Array(spareParts.keys)
-            let orderQuantities = Array(spareParts.values)
+            let sparePart = sortedSpareParts[indexPath.row]
+            let quantity = order?.spareParts[sparePart]
             
-            let currentSparePart = orderSpareParts[indexPath.row]
-            let currentQuantity = orderQuantities[indexPath.row]
-            
-            destinationViewController.title = currentSparePart.details
+            destinationViewController.title = sparePart.details
             destinationViewController.order = order
-            destinationViewController.sparePart = currentSparePart
-            destinationViewController.quantity = currentQuantity
+            destinationViewController.sparePart = sparePart
+            destinationViewController.quantity = quantity
         } else if segue.identifier == "EditPurchaseOrderDetails" {
             let destinationViewController = segue.destination as! EditPurchaseOrderDetailsTableViewController
             destinationViewController.title = "\(order?.orderNumber ?? "")"
@@ -105,9 +113,8 @@ class ViewEditPurchaseOrderTableViewController: UITableViewController, UINavigat
             let sourceViewController = segue.source as! EditPOSparePartsTableViewController
             
             let indexPath = tableView.indexPathForSelectedRow!
-            let sparePart = Array(spareParts.keys)[indexPath.row]
-            spareParts[sparePart] = sourceViewController.quantity
-            order?.spareParts = spareParts
+            let sparePart = sortedSpareParts[indexPath.row]
+            order?.spareParts[sparePart] = sourceViewController.quantity
             tableView.reloadData()
         }
     }

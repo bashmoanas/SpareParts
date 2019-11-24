@@ -32,35 +32,32 @@ class CustomerTranasctionsTableViewController: UITableViewController, UINavigati
     // MARK: - Table view data source
     
     override func numberOfSections(in tableView: UITableView) -> Int {
-        return 3
+        return 4
     }
     
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         switch section {
         case 0:
-            return 2
+            return 1
         case 1:
             return orders.count
-        default:
+        case 2:
             return payments.count
+        default:
+            return 2
         }
     }
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         switch indexPath.section {
         case 0:
-            let addOrderPaymentCell = tableView.dequeueReusableCell(withIdentifier: "AddOrderPaymentCell", for: indexPath)
             let cell = tableView.dequeueReusableCell(withIdentifier: "TotalDueCell", for: indexPath)
-            if indexPath.row == 0 {
-                return addOrderPaymentCell
-            } else {
-                cell.textLabel?.text =
-                """
-                Current Balance
-                \(customer?.totalDue.convertToEgyptianCurrency ?? "")
-                """
-                return cell
-            }
+            cell.textLabel?.text =
+            """
+            Current Balance
+            \(customer?.totalDue.convertToEgyptianCurrency ?? "")
+            """
+            return cell
         case 1:
             let cell = tableView.dequeueReusableCell(withIdentifier: "OrderCell", for: indexPath)
             let order = orders[indexPath.row]
@@ -68,12 +65,17 @@ class CustomerTranasctionsTableViewController: UITableViewController, UINavigati
             cell.detailTextLabel?.text = "\(order.totalDue.convertToEgyptianCurrency)"
             return cell
             
-        default:
+        case 2:
             let cell = tableView.dequeueReusableCell(withIdentifier: "TransactionCell", for: indexPath)
             let payment = payments[indexPath.row]
             cell.textLabel?.text = "\(CustomerPayment.paymentDateFormatter.string(from: payment.date))"
             cell.detailTextLabel?.text = "\(payment.amount.convertToEgyptianCurrency)"
             return cell
+            
+        default:
+            let orderCell = tableView.dequeueReusableCell(withIdentifier: "AddOrderCell", for: indexPath)
+            let paymentCell = tableView.dequeueReusableCell(withIdentifier: "AddPaymentCell", for: indexPath)
+            return indexPath.row == 0 ? orderCell : paymentCell
         }
     }
     
@@ -100,7 +102,7 @@ class CustomerTranasctionsTableViewController: UITableViewController, UINavigati
     
     // Override to support conditional editing of the table view.
     override func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
-        if indexPath.section == 0 {
+        if indexPath.section == 0 || indexPath.section == 3 {
             return false
         } else {
             return true
@@ -127,7 +129,7 @@ class CustomerTranasctionsTableViewController: UITableViewController, UINavigati
     }
     
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        if indexPath.section == 0 {
+        if indexPath.section == 0 || indexPath.section == 3 {
             tableView.deselectRow(at: indexPath, animated: true)
         }
     }
